@@ -4,14 +4,16 @@ package use_case.logout;
  * The Input Data for the Logout Use Case.
  */
 public class LogoutInputData {
-    String name;
+
+    private final String username;
 
     public LogoutInputData(String username) {
         // TODO: save the current username in an instance variable and add a getter.
-        this.name = username;
+        this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
+
 }
