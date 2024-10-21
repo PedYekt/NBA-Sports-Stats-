@@ -4,7 +4,7 @@ import use_case.logout.LogoutInputBoundary;
 import use_case.logout.LogoutInputData;
 
 /**
- * The controller for the Logot Ue Case.
+ * The controller for the Logout Ue Case.
  */
 public class LogoutController {
 
