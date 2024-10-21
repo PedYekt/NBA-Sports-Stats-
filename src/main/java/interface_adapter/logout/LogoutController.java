@@ -24,5 +24,3 @@ public class LogoutController {
         // 2. tell the Interactor to execute.
     }
 }
-
-
