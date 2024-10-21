@@ -96,7 +96,7 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 - `Main.java`
 
-  - [ ] TODO: add the Logout Use Case to the app using the appBuilder
+  - [X] TODO: add the Logout Use Case to the app using the appBuilder
 
 * * *
 
