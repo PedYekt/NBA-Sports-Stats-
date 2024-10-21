@@ -16,6 +16,7 @@ import javax.swing.event.DocumentListener;
 import interface_adapter.change_password.ChangePasswordController;
 import interface_adapter.change_password.LoggedInState;
 import interface_adapter.change_password.LoggedInViewModel;
+import interface_adapter.login.LoginState;
 import interface_adapter.logout.LogoutController;
 
 /**
@@ -100,6 +101,9 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 evt -> {
                     if (evt.getSource().equals(logOut)) {
+                        final LoggedInState currentState = loggedInViewModel.getState();
+                        logoutController.execute(currentState.getUsername());
+
                         // TODO: execute the logout use case through the Controller
                         // 1. get the state out of the loggedInViewModel. It contains the username.
                         // 2. Execute the logout Controller.
@@ -138,6 +142,6 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
     }
 
     public void setLogoutController(LogoutController logoutController) {
-        // TODO: save the logout controller in the instance variable.
+        this.logoutController = logoutController;
     }
 }
