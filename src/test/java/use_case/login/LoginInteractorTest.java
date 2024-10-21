@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LoginInteractorTest {
+class
+LoginInteractorTest {
 
     @Test
     void successTest() {
