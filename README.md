@@ -47,7 +47,7 @@ way we build the engine is drastically different: we have switched from using Fa
 using the Builder design pattern, which we'll be discussing in lecture soon. 
 
 Open up `app.Main` and read it as a team.
-- What are the Views and what are the current Use Cases?
+- What are the Views and what are the current Use Cases? 
 - Which Uses Cases are triggered from each View?
 - Which version of the DAO is `app.Main` using?
 
@@ -109,8 +109,8 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 - `LogoutController.java` (tip: refer to the other controllers for similar code)
 
-  - [ ] TODO: Save the interactor in the instance variable.
-  - [ ] TODO: run the use case interactor for the logout use case
+  - [X] TODO: Save the interactor in the instance variable.
+  - [X] TODO: run the use case interactor for the logout use case
 
 * * *
 
@@ -133,9 +133,9 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 - `LogoutPresenter.java` (tip: refer to `SignupPresenter.java` for similar code)
 
-  - [ ] TODO: assign to the three instance variables.
-  - [ ] TODO: have prepareSuccessView update the LoggedInState
-  - [ ] TODO: have prepareSuccessView update the LoginState
+  - [X] TODO: assign to the three instance variables.
+  - [X] TODO: have prepareSuccessView update the LoggedInState
+  - [X] TODO: have prepareSuccessView update the LoginState
 
 * * *
 
