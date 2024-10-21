@@ -20,6 +20,7 @@ public class Main {
                                             .addLoggedInView()
                                             .addSignupUseCase()
                                             .addLoginUseCase()
+                                            .addLogoutUseCase()
                                             .addChangePasswordUseCase()
                                             .build();
 
