@@ -1,7 +1,7 @@
 package use_case.logout;
 
 /**
- * the Input Data for the Logout Use Case.
+ * The Input Data for the Logout Use Case.
  */
 public class LogoutInputData {
 
