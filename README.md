@@ -47,7 +47,7 @@ way we build the engine is drastically different: we have switched from using Fa
 using the Builder design pattern, which we'll be discussing in lecture soon. 
 
 Open up `app.Main` and read it as a team.
-- What are the Views and what are the current Use Cases?
+- What are the Views and what are the current Use Cases? 
 - Which Uses Cases are triggered from each View?
 - Which version of the DAO is `app.Main` using?
 
