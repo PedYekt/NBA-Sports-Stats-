@@ -4,7 +4,7 @@ import entity.User;
 import entity.UserFactory;
 
 /**
- * The Change Password Interactor.
+ * the Change Password Interactor.
  */
 public class ChangePasswordInteractor implements ChangePasswordInputBoundary {
     private final ChangePasswordUserDataAccessInterface userDataAccessObject;
