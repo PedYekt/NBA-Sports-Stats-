@@ -15,6 +15,7 @@ public class LogoutController {
 
     /**
      * Executes the Logout Use Case.
+     *
      * @param username the username of the user logging in
      */
     public void execute(String username) {
@@ -23,3 +24,5 @@ public class LogoutController {
         // 2. tell the Interactor to execute.
     }
 }
+
+
