@@ -100,38 +100,38 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 * * *
 
-- `LoggedInView.java` (tip: refer to the other views for similar code)
+- `LoggedInView.java` (tip: refer to the other views for similar code) Amal
 
   - [ ] TODO: save the logout controller in the instance variable.
   - [ ] TODO: execute the logout use case through the Controller
 
 * * *
 
-- `LogoutController.java` (tip: refer to the other controllers for similar code)
+- `LogoutController.java` (tip: refer to the other controllers for similar code) Abeera
 
   - [ ] TODO: Save the interactor in the instance variable.
   - [ ] TODO: run the use case interactor for the logout use case
 
 * * *
 
-- `LogoutInputData.java` (should be done with the LogoutInteractor TODOs below)
+- `LogoutInputData.java` (should be done with the LogoutInteractor TODOs below)Gaia
 
-  - [ ] TODO: save the current username in an instance variable and add a getter.
+  - [X] TODO: save the current username in an instance variable and add a getter.
 
-- `LogoutInteractor.java` (tip: refer to `ChangePasswordInteractor.java` for similar code)
+- `LogoutInteractor.java` (tip: refer to `ChangePasswordInteractor.java` for similar code)Shannon
 
-  - [ ] TODO: save the DAO and Presenter in the instance variables.
-  - [ ] TODO: implement the logic of the Logout Use Case
-
-* * *
-
-- `LogoutOutputData.java`
-
-  - [ ] TODO: save the parameters in the instance variables.
+  - [X] TODO: save the DAO and Presenter in the instance variables.
+  - [X] TODO: implement the logic of the Logout Use Case
 
 * * *
 
-- `LogoutPresenter.java` (tip: refer to `SignupPresenter.java` for similar code)
+- `LogoutOutputData.java`Gaia
+
+  - [X] TODO: save the parameters in the instance variables.
+
+* * *
+
+- `LogoutPresenter.java` (tip: refer to `SignupPresenter.java` for similar code) Max
 
   - [ ] TODO: assign to the three instance variables.
   - [ ] TODO: have prepareSuccessView update the LoggedInState
