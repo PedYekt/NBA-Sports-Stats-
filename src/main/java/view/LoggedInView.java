@@ -23,7 +23,6 @@ import interface_adapter.logout.LogoutController;
  */
 public class LoggedInView extends JPanel implements PropertyChangeListener {
 
-    private final String viewName = "logged in";
     private final LoggedInViewModel loggedInViewModel;
     private final JLabel passwordErrorField = new JLabel();
     private ChangePasswordController changePasswordController;
@@ -131,6 +130,7 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
     }
 
     public String getViewName() {
+        String viewName = "logged in";
         return viewName;
     }
 
