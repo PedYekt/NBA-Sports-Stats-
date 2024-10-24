@@ -130,8 +130,7 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
     }
 
     public String getViewName() {
-        String viewName = "logged in";
-        return viewName;
+        return "logged in";
     }
 
     public void setChangePasswordController(ChangePasswordController changePasswordController) {
