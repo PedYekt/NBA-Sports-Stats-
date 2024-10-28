@@ -100,9 +100,11 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 evt -> {
                     if (evt.getSource().equals(logOut)) {
-                        final LoggedInState currentState = loggedInViewModel.getState();
-                        this.logoutController.execute(currentState.getUsername());
-
+                        // Finished: execute the logout use case through the Controller
+                        // 1. get the state out of the loggedInViewModel. It contains the username.
+                        // 2. Execute the logout Controller.
+                        final String tempUsername = loggedInViewModel.getState().getUsername();
+                        logoutController.execute(tempUsername);
                     }
                 }
         );
@@ -137,12 +139,7 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
         this.changePasswordController = changePasswordController;
     }
 
-    /**
-     * Sets the LogoutController for this view.
-     *
-     * @param logoutController the LogoutController to be associated with this view
-     */
     public void setLogoutController(LogoutController logoutController) {
-        this.logoutController = logoutController;
+        // TODO: save the logout controller in the instance variable.
     }
 }
