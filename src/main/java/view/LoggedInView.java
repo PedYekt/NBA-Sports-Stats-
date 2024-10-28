@@ -143,7 +143,6 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
      * @param logoutController the LogoutController to be associated with this view
      */
     public void setLogoutController(LogoutController logoutController) {
-        // TODO: save the logout controller in the instance variable.
         this.logoutController = logoutController;
     }
 }
