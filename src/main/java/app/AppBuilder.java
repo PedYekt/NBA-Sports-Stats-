@@ -182,4 +182,9 @@ public class AppBuilder {
 
         return application;
     }
+
+    private static int testing() {
+        return 1;
+
+    }
 }
