@@ -1,2 +1,4 @@
-package data_access;public class InMemoryTeamDataAccessObject {
+package data_access;
+
+public class InMemoryTeamDataAccessObject {
 }

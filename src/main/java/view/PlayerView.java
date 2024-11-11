@@ -1,2 +1,4 @@
-package view;public class PlayerView {
+package view;
+
+public class PlayerView {
 }

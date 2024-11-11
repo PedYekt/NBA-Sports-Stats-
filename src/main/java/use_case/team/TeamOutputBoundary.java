@@ -1,2 +1,4 @@
-package use_case.team;public class TeamOutputBoundary {
+package use_case.team;
+
+public class TeamOutputBoundary {
 }

@@ -1,2 +1,4 @@
-package interface_adapter.player;public class PlayerViewModel {
+package interface_adapter.player;
+
+public class PlayerViewModel {
 }

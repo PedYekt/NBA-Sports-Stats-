@@ -1,2 +1,5 @@
-package api;public class TeamApi {
+package api;
+
+public class TeamApi {
+
 }

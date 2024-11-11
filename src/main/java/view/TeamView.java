@@ -1,2 +1,4 @@
-package view;public class TeamView {
+package view;
+
+public class TeamView {
 }
