@@ -1,28 +1,40 @@
 package app;
 
-import javax.swing.JFrame;
+import api.PlayerApi;
+import entity.PlayerData;
+import interface_adapter.player.PlayerDataParser;
+
+import java.util.List;
+import java.util.Scanner;
 
 /**
- * The Main class of our application.
+ * Main class to fetch and display player data.
  */
 public class Main {
+
     /**
-     * Builds and runs the CA architecture of the application.
-     * @param args unused arguments
+     * Main method to fetch and display player data based on user input.
+     * @param args command line arguments
      */
     public static void main(String[] args) {
-        final AppBuilder appBuilder = new AppBuilder();
-        // TODO: add the Logout Use Case to the app using the appBuilder
-        final JFrame application = appBuilder
-                                            .addLoginView()
-                                            .addSignupView()
-                                            .addLoggedInView()
-                                            .addSignupUseCase()
-                                            .addLoginUseCase()
-                                            .addChangePasswordUseCase()
-                                            .build();
+        final Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter player name: ");
+        final String playerName = scanner.nextLine();
 
-        application.pack();
-        application.setVisible(true);
+        final String jsonString = PlayerApi.fetchAllPlayersData();
+        if (jsonString != null) {
+            final PlayerDataParser parser = new PlayerDataParser();
+            final List<PlayerData> playerDataList = parser.fetchAndParseAllPlayers(jsonString);
+
+            for (PlayerData playerData : playerDataList) {
+                if (playerData.getPlayerName().equalsIgnoreCase(playerName)) {
+                    System.out.println(playerData);
+                    return;
+                }
+            }
+            System.out.println("Player not found.");
+        } else {
+            System.out.println("Failed to fetch player data.");
+        }
     }
 }
