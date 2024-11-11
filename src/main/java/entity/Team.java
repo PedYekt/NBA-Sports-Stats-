@@ -1,2 +1,4 @@
-package entity;public class Team {
+package entity;
+
+public class Team {
 }

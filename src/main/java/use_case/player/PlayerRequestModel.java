@@ -1,2 +1,4 @@
-package use_case.player;public class PlayerRequestModel {
+package use_case.player;
+
+public class PlayerRequestModel {
 }

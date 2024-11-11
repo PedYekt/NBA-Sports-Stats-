@@ -1,2 +1,4 @@
-package interface_adapter.team;public class TeamController {
+package interface_adapter.team;
+
+public class TeamController {
 }

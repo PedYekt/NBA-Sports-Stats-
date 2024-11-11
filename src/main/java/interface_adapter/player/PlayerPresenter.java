@@ -1,2 +1,4 @@
-package interface_adapter.player;public class PlayerPresenter {
+package interface_adapter.player;
+
+public class PlayerPresenter {
 }

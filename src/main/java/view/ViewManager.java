@@ -1,2 +1,4 @@
-package view;public class ViewManager {
+package view;
+
+public class ViewManager {
 }

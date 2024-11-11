@@ -1,2 +1,4 @@
-package interface_adapter;public class ViewManagerModel {
+package interface_adapter;
+
+public class ViewManagerModel {
 }
