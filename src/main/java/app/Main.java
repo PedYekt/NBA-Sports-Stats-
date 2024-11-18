@@ -4,8 +4,12 @@ import api.PlayerApi;
 import entity.PlayerData;
 import interface_adapter.player.PlayerDataParser;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.awt.Component.CENTER_ALIGNMENT;
 
 /**
  * Main class to fetch and display player data.
@@ -17,6 +21,14 @@ public class Main {
      * @param args command line arguments
      */
     public static void main(String[] args) {
+
+        final AppBuilder appBuilder = new AppBuilder();
+        final JFrame application = appBuilder
+                .addPlayerView().build();
+
+        application.pack();
+        application.setVisible(true);
+
         final Scanner scanner = new Scanner(System.in);
         System.out.print("Enter player name: ");
         final String playerName = scanner.nextLine();
