@@ -19,5 +19,4 @@ The application gives users access to information for both individual NBA athlet
     - Michael, a basketball analyst, wants to research top scorers from the 2019 NBA season. He uses the app to pull up a list of players with the highest points that season, which helps him in drafting an article comparing modern players to past NBA greats.
 
 4. **George's Story** (Taimoore's Responsibility)
-    - George is an avid fan of fantasy basketball and wants to view the defensive stats of different teams in the NBA. In particular, George checks each team’s average turnovers per game, average rebounds per game, and average points per game.
-    - testing
+    - George is an avid fan of fantasy basketball and wants to compare the statistics of two players head-to-head. He uses the application to search for two players and compare their points per game, assists per game, and rebounds per game, among other statistics. The app will list the better stats in bold, indiciating where one player might be better than the other. This information helps George make an informed decision on which players to draft and put in his lineup for his fantasy basketball team.
