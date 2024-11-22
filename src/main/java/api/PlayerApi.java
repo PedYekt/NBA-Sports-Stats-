@@ -44,4 +44,8 @@ public class PlayerApi {
         }
         return playerDataString;
     }
+
+    public static void main(String[] args) {
+        System.out.println(fetchAllPlayersData());
+    }
 }
