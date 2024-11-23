@@ -3,6 +3,7 @@ package interface_adapter.player;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.PlayerApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -63,5 +64,4 @@ public class PlayerDataParser {
 
         return playerDataList;
     }
-
 }

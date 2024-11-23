@@ -51,9 +51,4 @@ public class InMemoryTeamDataAccessObject {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        final InMemoryTeamDataAccessObject teamDataAccessObject = new InMemoryTeamDataAccessObject();
-        System.out.println(teamDataAccessObject.getTeamByName("nets"));
-    }
 }
