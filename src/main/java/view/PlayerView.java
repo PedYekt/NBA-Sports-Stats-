@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerView extends JPanel {
+    private final String viewName = "player";
 
     private final PlayerViewModel playerViewModel;
 
@@ -46,6 +47,10 @@ public class PlayerView extends JPanel {
 
         this.add(title);
         this.add(playerListScrollPane);
+    }
+
+    public String getViewName() {
+        return viewName;
     }
 
 }

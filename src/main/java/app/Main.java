@@ -24,7 +24,10 @@ public class Main {
 
         final AppBuilder appBuilder = new AppBuilder();
         final JFrame application = appBuilder
-                .addPlayerView().build();
+                .addTeamCompareView()
+                .addTeamCompareSuccessView()
+                .addTeamCompareUseCase()
+                .build();
 
         application.pack();
         application.setVisible(true);
