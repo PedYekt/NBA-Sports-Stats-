@@ -1,16 +1,16 @@
 package app;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.menu.MenuViewController;
+import interface_adapter.menu.MenuViewPresenter;
 import interface_adapter.player.PlayerViewModel;
 import interface_adapter.team_compare.TeamCompareController;
 import interface_adapter.team_compare.TeamComparePresenter;
 import interface_adapter.team_compare.TeamCompareSuccessViewModel;
 import interface_adapter.team_compare.TeamCompareViewModel;
+import use_case.menu.MenuViewInteractor;
 import use_case.team_compare.TeamCompareInteractor;
-import view.PlayerView;
-import view.TeamCompareSuccessView;
-import view.TeamCompareView;
-import view.ViewManager;
+import view.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +28,7 @@ public class AppBuilder {
     private TeamCompareViewModel teamCompareViewModel;
     private TeamCompareSuccessView teamCompareSuccessView;
     private TeamCompareSuccessViewModel teamCompareSuccessViewModel;
+    private MenuView menuView;
 
     public AppBuilder() {
         cardPanel.setLayout(cardLayout);
@@ -36,7 +37,7 @@ public class AppBuilder {
     public AppBuilder addPlayerView() {
         playerViewModel = new PlayerViewModel();
         playerView = new PlayerView(playerViewModel);
-        cardPanel.add(playerView, "Player View");
+        cardPanel.add(playerView, playerView.getViewName());
         return this;
     }
 
@@ -63,13 +64,28 @@ public class AppBuilder {
         return this;
     }
 
+    public AppBuilder addMenuView() {
+        menuView = new MenuView();
+        cardPanel.add(menuView, menuView.getViewName());
+        return this;
+    }
+
+    public AppBuilder addMenuUseCase() {
+        final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, viewManagerModel);
+        final MenuViewInteractor menuViewInteractor = new MenuViewInteractor(menuViewPresenter);
+        final MenuViewController menuViewController = new MenuViewController(menuViewInteractor);
+        menuView.setMenuViewController(menuViewController);
+        return this;
+
+    }
+
     public JFrame build() {
         final JFrame application = new JFrame("NBA Stat Tracker");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         application.add(cardPanel);
 
-        viewManagerModel.setState(teamCompareView.getViewName());
+        viewManagerModel.setState(menuView.getViewName());
         viewManagerModel.firePropertyChanged();
 
         return application;

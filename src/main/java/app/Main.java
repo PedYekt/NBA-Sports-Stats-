@@ -27,6 +27,9 @@ public class Main {
                 .addTeamCompareView()
                 .addTeamCompareSuccessView()
                 .addTeamCompareUseCase()
+                .addPlayerView()
+                .addMenuView()
+                .addMenuUseCase()
                 .build();
 
         application.pack();

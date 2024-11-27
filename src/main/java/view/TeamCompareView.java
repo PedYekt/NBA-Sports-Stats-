@@ -37,18 +37,17 @@ public class TeamCompareView extends JPanel {
         compare = new JButton(TeamCompareViewModel.COMPARE_BUTTON_LABEL);
         compare.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-//        final InMemoryTeamDataAccessObject teams = new InMemoryTeamDataAccessObject();
-//        final List<TeamData> teamList = teams.getAllTeams();
-//        DefaultListModel<String> teamNames = new DefaultListModel<>();
-//
-//        for (TeamData team : teamList) {
-//            teamNames.addElement(team.getTeamName());
-//        }
+        final InMemoryTeamDataAccessObject teams = new InMemoryTeamDataAccessObject();
+        final List<TeamData> teamList = teams.getAllTeams();
+        final DefaultListModel<String> teamNames = new DefaultListModel<>();
 
+        for (TeamData team : teamList) {
+            teamNames.addElement(team.getTeamName());
+        }
 
-        String[] teams = {"Toronto Raptors", "Denver Nuggets", "Golden State Warriors", "Memphis Grizzlies"};
-        dropdown1 = new JComboBox(teams);
-        dropdown2 = new JComboBox(teams);
+        final String[] teamListFinal = {teamNames.get(0), teamNames.get(1), teamNames.get(2), teamNames.get(3), teamNames.get(4), teamNames.get(5), teamNames.get(6), teamNames.get(7), teamNames.get(8), teamNames.get(9), teamNames.get(10), teamNames.get(11), teamNames.get(12), teamNames.get(13), teamNames.get(14), teamNames.get(15), teamNames.get(16), teamNames.get(17), teamNames.get(18), teamNames.get(19), teamNames.get(20), teamNames.get(21), teamNames.get(22), teamNames.get(23), teamNames.get(24), teamNames.get(25), teamNames.get(26), teamNames.get(27), teamNames.get(28), teamNames.get(29)};
+        dropdown1 = new JComboBox(teamListFinal);
+        dropdown2 = new JComboBox(teamListFinal);
         dropdown1.setEditable(true);
         dropdown2.setEditable(true);
 
@@ -56,13 +55,9 @@ public class TeamCompareView extends JPanel {
             public void actionPerformed(ActionEvent evt) {
                 teamCompareController.execute((String) dropdown1.getSelectedItem(),
                         (String) dropdown2.getSelectedItem());
-                //teamCompareController.switchToTeamCompareSuccessView();
 
             }
         });
-
-//        JList<String> finalList = new JList<>(teamNames);
-//        JScrollPane teamsListScrollPane = new JScrollPane(finalList);
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(title);
