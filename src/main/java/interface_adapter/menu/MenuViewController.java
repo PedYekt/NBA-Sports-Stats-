@@ -13,4 +13,8 @@ public class MenuViewController {
     public void switchToTeamCompareView() {
         menuViewInteractor.switchToTeamCompareView();
     }
+
+    public void switchToTeamView() {
+        menuViewInteractor.switchToTeamView();
+    }
 }

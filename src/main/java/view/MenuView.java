@@ -85,6 +85,12 @@ public class MenuView extends JPanel {
             }
         });
 
+        teamViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToTeamView();
+            }
+        });
+
         this.add(buttonPanel);
     }
 
