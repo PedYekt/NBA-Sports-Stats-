@@ -26,16 +26,19 @@ public class TeamCompareView extends JPanel {
     private TeamCompareController teamCompareController;
 
     private final JButton compare;
+    private final JButton menu;
 
     public TeamCompareView(TeamCompareViewModel teamCompareViewModel) {
         this.teamCompareViewModel = teamCompareViewModel;
-        //teamCompareViewModel.addPropertyChangeListener(this);
 
         final JLabel title = new JLabel(TeamCompareViewModel.TITLE_LABEL);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         compare = new JButton(TeamCompareViewModel.COMPARE_BUTTON_LABEL);
         compare.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        menu = new JButton("Back to Menu");
+        menu.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         final InMemoryTeamDataAccessObject teams = new InMemoryTeamDataAccessObject();
         final List<TeamData> teamList = teams.getAllTeams();
@@ -59,11 +62,19 @@ public class TeamCompareView extends JPanel {
             }
         });
 
+        menu.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                teamCompareController.switchToMenuView();
+
+            }
+        });
+
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(title);
         this.add(dropdown1);
         this.add(dropdown2);
         this.add(compare);
+        this.add(menu);
 
     }
 

@@ -57,10 +57,11 @@ public class AppBuilder {
 
     public AppBuilder addTeamCompareUseCase() {
         final TeamComparePresenter teamComparePresenter = new TeamComparePresenter(teamCompareViewModel,
-                teamCompareSuccessViewModel, viewManagerModel);
+                teamCompareSuccessViewModel, viewManagerModel, menuView);
         final TeamCompareInteractor teamCompareInteractor = new TeamCompareInteractor(teamComparePresenter);
         final TeamCompareController teamCompareController = new TeamCompareController(teamCompareInteractor);
         teamCompareView.setTeamCompareController(teamCompareController);
+        teamCompareSuccessView.setTeamCompareController(teamCompareController);
         return this;
     }
 

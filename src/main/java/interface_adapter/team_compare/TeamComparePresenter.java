@@ -2,19 +2,22 @@ package interface_adapter.team_compare;
 
 import interface_adapter.ViewManagerModel;
 import use_case.team_compare.TeamCompareOutputData;
+import view.MenuView;
 
 public class TeamComparePresenter {
 
     private final TeamCompareViewModel teamCompareViewModel;
     private final TeamCompareSuccessViewModel teamCompareSuccessViewModel;
     private final ViewManagerModel viewManagerModel;
+    private final MenuView menuView;
 
     public TeamComparePresenter(TeamCompareViewModel teamCompareViewModel,
                                 TeamCompareSuccessViewModel teamCompareSuccessViewModel,
-                                ViewManagerModel viewManagerModel) {
+                                ViewManagerModel viewManagerModel, MenuView menuView) {
         this.teamCompareViewModel = teamCompareViewModel;
         this.teamCompareSuccessViewModel = teamCompareSuccessViewModel;
         this.viewManagerModel = viewManagerModel;
+        this.menuView = menuView;
     }
 
     public void prepareSuccessView(TeamCompareOutputData response) {
@@ -29,8 +32,8 @@ public class TeamComparePresenter {
         viewManagerModel.firePropertyChanged();
     }
 
-    public void switchToTeamCompareSuccessView() {
-        viewManagerModel.setState(teamCompareSuccessViewModel.getViewName());
+    public void switchToMenuView() {
+        viewManagerModel.setState(menuView.getViewName());
         viewManagerModel.firePropertyChanged();
     }
 }

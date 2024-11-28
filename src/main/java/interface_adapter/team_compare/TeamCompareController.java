@@ -16,7 +16,7 @@ public class TeamCompareController {
         teamCompareInteractor.execute(teamCompareInputData);
     }
 
-    public void switchToTeamCompareSuccessView() {
-        teamCompareInteractor.switchToTeamCompareSuccessView();
+    public void switchToMenuView() {
+        teamCompareInteractor.switchToMenuView();
     }
 }

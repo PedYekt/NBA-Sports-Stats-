@@ -24,11 +24,11 @@ public class Main {
 
         final AppBuilder appBuilder = new AppBuilder();
         final JFrame application = appBuilder
+                .addMenuView()
                 .addTeamCompareView()
                 .addTeamCompareSuccessView()
                 .addTeamCompareUseCase()
                 .addPlayerView()
-                .addMenuView()
                 .addMenuUseCase()
                 .build();
 
