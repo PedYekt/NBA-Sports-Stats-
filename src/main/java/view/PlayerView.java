@@ -4,27 +4,20 @@ import data_access.InMemoryPlayerDataAccessObject;
 import entity.PlayerData;
 import interface_adapter.player.PlayerController;
 import interface_adapter.player.PlayerViewModel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.RowFilter;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-/**
- * PlayerView is a JPanel that displays player data in a table.
- */
 public class PlayerView extends JPanel {
     private static final int SEARCH_FIELD_COLUMNS = 20;
     private final JTextField searchField;
     private final JButton viewAllButton;
+    private final JButton backButton;
     private final JTable playerTable;
     private final DefaultTableModel tableModel;
     private final TableRowSorter<DefaultTableModel> sorter;
@@ -72,20 +65,24 @@ public class PlayerView extends JPanel {
             loadAllPlayers();
         });
 
-        // Set comparators for numeric columns
-        sorter.setComparator(1, (o1, o2) -> Integer.compare(Integer.parseInt((String) o1), Integer.parseInt((String) o2)));
-        sorter.setComparator(2, (o1, o2) -> Integer.compare(Integer.parseInt((String) o1), Integer.parseInt((String) o2)));
-        sorter.setComparator(3, (o1, o2) -> Integer.compare(Integer.parseInt((String) o1), Integer.parseInt((String) o2)));
-
-        // Create a panel for the search field and button
+        // Create a panel for the search field and "View All" button
         final JPanel controlPanel = new JPanel();
         controlPanel.add(new JLabel("Search:"));
         controlPanel.add(searchField);
         controlPanel.add(viewAllButton);
 
+        // Create the "Back to Menu" button
+        backButton = new JButton("Back to Menu");
+        backButton.addActionListener(event -> controller.switchToMenuView());
+
+        // Create a panel for the "Back to Menu" button
+        final JPanel backPanel = new JPanel();
+        backPanel.add(backButton);
+
         // Add components to the main panel
         add(controlPanel, BorderLayout.NORTH);
         add(new JScrollPane(playerTable), BorderLayout.CENTER);
+        add(backPanel, BorderLayout.SOUTH);
 
         // Load all players initially
         loadAllPlayers();
@@ -106,35 +103,11 @@ public class PlayerView extends JPanel {
         }
     }
 
-    /**
-     * Updates the table with the latest player data.
-     */
-    public void updateTable() {
-        tableModel.setRowCount(0);
-        for (PlayerData player : viewModel.getState().getPlayers()) {
-            tableModel.addRow(new Object[]{
-                    player.getPlayerName(),
-                    String.valueOf(player.getPoints()),
-                    String.valueOf(player.getTurnovers()),
-                    String.valueOf(player.getSteals()),
-            });
-        }
-    }
-
-    /**
-     * Returns the name of the view.
-     * @return the name of the view
-     */
     public String getViewName() {
         return viewName;
     }
 
-    /**
-     * Sets the player controller.
-     * @param controller the player controller
-     */
     public void setPlayerController(PlayerController controller) {
         this.controller = controller;
     }
-
 }

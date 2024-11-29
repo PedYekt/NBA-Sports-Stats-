@@ -11,4 +11,9 @@ public interface ViewPlayersOutputBoundary {
      * @param responseModel the response model containing the players
      */
     void presentPlayers(ViewPlayersResponseModel responseModel);
+
+    /**
+     * Switches to the menu view.
+     */
+    void switchToMenuView();
 }

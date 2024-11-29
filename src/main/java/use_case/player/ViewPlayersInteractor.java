@@ -23,4 +23,9 @@ public class ViewPlayersInteractor implements ViewPlayersInputBoundary {
         final ViewPlayersResponseModel responseModel = new ViewPlayersResponseModel(players);
         presenter.presentPlayers(responseModel);
     }
+
+    @Override
+    public void switchToMenuView() {
+        presenter.switchToMenuView();
+    }
 }

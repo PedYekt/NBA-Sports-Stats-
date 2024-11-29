@@ -47,13 +47,13 @@ public class AppBuilder {
     public AppBuilder addPlayerView() {
         playerViewModel = new PlayerViewModel();
         playerView = new PlayerView(new PlayerController(new ViewPlayersInteractor(new InMemoryPlayerDataAccessObject(),
-                new PlayerPresenter(playerViewModel))), playerViewModel);
+                new PlayerPresenter(playerViewModel, viewManagerModel, menuView))), playerViewModel);
         cardPanel.add(playerView, playerView.getViewName());
         return this;
     }
 
     public AppBuilder addPlayerUseCase() {
-        final PlayerPresenter playerPresenter = new PlayerPresenter(playerViewModel);
+        final PlayerPresenter playerPresenter = new PlayerPresenter(playerViewModel, viewManagerModel, menuView);
         final ViewPlayersInteractor playerInteractor = new ViewPlayersInteractor(new InMemoryPlayerDataAccessObject(), playerPresenter);
         final PlayerController playerController = new PlayerController(playerInteractor);
         playerView.setPlayerController(playerController);
