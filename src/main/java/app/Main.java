@@ -16,13 +16,13 @@ public class Main {
 
         final AppBuilder appBuilder = new AppBuilder();
         final JFrame application = appBuilder
-                .addPlayerView()
-                .addPlayerUseCase()
+                .addMenuView()
                 .addTeamCompareView()
                 .addTeamCompareSuccessView()
                 .addTeamCompareUseCase()
                 .addPlayerView()
-                .addMenuView()
+                .addPlayerUseCase()                
+                .addTeamView()
                 .addMenuUseCase()
                 .build();
 

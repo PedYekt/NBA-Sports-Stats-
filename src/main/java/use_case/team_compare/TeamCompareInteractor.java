@@ -10,8 +10,8 @@ public class TeamCompareInteractor {
         this.teamComparePresenter = teamComparePresenter;
     }
 
-    public void switchToTeamCompareSuccessView() {
-        teamComparePresenter.switchToTeamCompareSuccessView();
+    public void switchToMenuView() {
+        teamComparePresenter.switchToMenuView();
     }
 
     public void execute(TeamCompareInputData teamCompareInputData) {

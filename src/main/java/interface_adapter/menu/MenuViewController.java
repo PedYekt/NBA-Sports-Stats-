@@ -16,5 +16,8 @@ public class MenuViewController {
 
     public void switchToPlayerView() {
         menuViewInteractor.switchToPlayerView();
+      
+    public void switchToTeamView() {
+        menuViewInteractor.switchToTeamView();
     }
 }

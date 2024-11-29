@@ -7,12 +7,16 @@ import interface_adapter.menu.MenuViewPresenter;
 import interface_adapter.player.PlayerController;
 import interface_adapter.player.PlayerPresenter;
 import interface_adapter.player.PlayerViewModel;
+import interface_adapter.team.TeamController;
+import interface_adapter.team.TeamPresenter;
+import interface_adapter.team.TeamViewModel;
 import interface_adapter.team_compare.TeamCompareController;
 import interface_adapter.team_compare.TeamComparePresenter;
 import interface_adapter.team_compare.TeamCompareSuccessViewModel;
 import interface_adapter.team_compare.TeamCompareViewModel;
 import use_case.menu.MenuViewInteractor;
 import use_case.player.ViewPlayersInteractor;
+import use_case.team.TeamInteractor;
 import use_case.team_compare.TeamCompareInteractor;
 import view.*;
 
@@ -32,6 +36,8 @@ public class AppBuilder {
     private TeamCompareViewModel teamCompareViewModel;
     private TeamCompareSuccessView teamCompareSuccessView;
     private TeamCompareSuccessViewModel teamCompareSuccessViewModel;
+    private TeamViewModel teamViewModel;
+    private TeamView teamView;
     private MenuView menuView;
 
     public AppBuilder() {
@@ -69,10 +75,11 @@ public class AppBuilder {
 
     public AppBuilder addTeamCompareUseCase() {
         final TeamComparePresenter teamComparePresenter = new TeamComparePresenter(teamCompareViewModel,
-                teamCompareSuccessViewModel, viewManagerModel);
+                teamCompareSuccessViewModel, viewManagerModel, menuView);
         final TeamCompareInteractor teamCompareInteractor = new TeamCompareInteractor(teamComparePresenter);
         final TeamCompareController teamCompareController = new TeamCompareController(teamCompareInteractor);
         teamCompareView.setTeamCompareController(teamCompareController);
+        teamCompareSuccessView.setTeamCompareController(teamCompareController);
         return this;
     }
 
@@ -84,12 +91,23 @@ public class AppBuilder {
 
     public AppBuilder addMenuUseCase() {
         final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, viewManagerModel,
-                playerViewModel);
+                playerViewModel, teamViewModel);
         final MenuViewInteractor menuViewInteractor = new MenuViewInteractor(menuViewPresenter);
         final MenuViewController menuViewController = new MenuViewController(menuViewInteractor);
         menuView.setMenuViewController(menuViewController);
         return this;
 
+    }
+
+    public AppBuilder addTeamView() {
+        teamViewModel = new TeamViewModel();
+        teamView = new TeamView(teamViewModel);
+        final TeamPresenter teamPresenter = new TeamPresenter(menuView, viewManagerModel);
+        final TeamInteractor teamInteractor = new TeamInteractor(teamPresenter);
+        TeamController teamController = new TeamController(teamInteractor);
+        teamView.setTeamController(teamController);
+        cardPanel.add(teamView, teamView.getViewName());
+        return this;
     }
 
     public JFrame build() {
