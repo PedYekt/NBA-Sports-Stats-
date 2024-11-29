@@ -136,4 +136,5 @@ public class PlayerView extends JPanel {
     public void setPlayerController(PlayerController controller) {
         this.controller = controller;
     }
+
 }

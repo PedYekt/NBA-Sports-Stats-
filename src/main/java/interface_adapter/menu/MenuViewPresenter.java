@@ -19,6 +19,7 @@ public class MenuViewPresenter {
         this.playerViewModel = playerViewModel;
         this.teamViewModel = teamViewModel;
         this.viewManagerModel = viewManagerModel;
+    }
 
 
     /**
@@ -34,6 +35,8 @@ public class MenuViewPresenter {
      */
     public void switchToPlayerView() {
         viewManagerModel.setState(playerViewModel.getViewName());
+        viewManagerModel.firePropertyChanged();
+    }
     
       public void switchToTeamView() {
         viewManagerModel.setState(teamViewModel.getViewName());
