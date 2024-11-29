@@ -47,12 +47,4 @@ public class FetchTeamDataUseCase {
         }
         return teamDataList;
     }
-
-    public static void main(String[] args) {
-        final FetchTeamDataUseCase fetchTeamDataUseCase = new FetchTeamDataUseCase();
-        final List<TeamData> teamDataList = fetchTeamDataUseCase.fetchAndReturnTeamData();
-        for (TeamData teamData : teamDataList) {
-            System.out.println(teamData.getTeamName());
-        }
-    }
 }

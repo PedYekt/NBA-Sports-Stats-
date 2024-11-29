@@ -86,6 +86,12 @@ public class MenuView extends JPanel {
         });
 
         this.add(buttonPanel);
+
+        playerViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToPlayerView();
+            }
+        });
     }
 
     /**

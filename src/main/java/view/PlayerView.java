@@ -1,56 +1,139 @@
 package view;
 
-import api.PlayerApi;
+import data_access.InMemoryPlayerDataAccessObject;
 import entity.PlayerData;
-import interface_adapter.player.PlayerDataParser;
+import interface_adapter.player.PlayerController;
 import interface_adapter.player.PlayerViewModel;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
+/**
+ * PlayerView is a JPanel that displays player data in a table.
+ */
 public class PlayerView extends JPanel {
-    private final String viewName = "player";
+    private static final int SEARCH_FIELD_COLUMNS = 20;
+    private final JTextField searchField;
+    private final JButton viewAllButton;
+    private final JTable playerTable;
+    private final DefaultTableModel tableModel;
+    private final TableRowSorter<DefaultTableModel> sorter;
+    private PlayerController controller;
+    private final PlayerViewModel viewModel;
 
-    private final PlayerViewModel playerViewModel;
+    private final String viewName = "player view";
 
-    public PlayerView(PlayerViewModel playerViewModel) {
-        this.playerViewModel = playerViewModel;
+    public PlayerView(PlayerController controller, PlayerViewModel viewModel) {
+        this.controller = controller;
+        this.viewModel = viewModel;
 
-        final JLabel title = new JLabel(PlayerViewModel.TITLE_LABEL);
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        setLayout(new BorderLayout());
 
-        DefaultListModel<String> guiPlayerList = new DefaultListModel<>();
-
-        final String jsonString = PlayerApi.fetchAllPlayersData();
-
-        final PlayerDataParser parser = new PlayerDataParser();
-        final List<PlayerData> playerDataList = parser.fetchAndParseAllPlayers(jsonString);
-        final List<String> playerNames = new ArrayList<>();
-
-        for (PlayerData playerData : playerDataList) {
-            if (playerNames.contains(playerData.getPlayerName())) {
-                continue;
+        // Create the table model and JTable
+        tableModel = new DefaultTableModel(new Object[]{"Player Name", "Points", "Turnovers", "Steals"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-            else {
-                String playerString = new String("Name: " + playerData.getPlayerName() + "," + " Position: " + playerData.getPosition() + "," + " Age: " + playerData.getAge() + "," + " Games: " + playerData.getGames() + "," + " Games Started: " + playerData.getGamesStarted() + "," + " Minutes Per Game: " + playerData.getMinutesPg() + "," + " Field Goals: " + playerData.getFieldGoals() + "," + " Field Goal Attempts: " + playerData.getFieldAttempts() + "," + " Field Goal Percentage: " + playerData.getFieldPercent() + "," + " Three Point Field Goals: " + playerData.getThreeFg() + "," + " Three Point Attempts: " + playerData.getThreeAttempts() + "," + " Three Point Percentage: " + playerData.getThreePercent() + "," + " Two Point Field Goals: " + playerData.getTwoFg() + "," + " Two Point Attempts: " + playerData.getTwoAttempts() + "," + " Two Point Percentage: " + playerData.getTwoPercent() + "," + " Effective Field Goal Percentage: " + playerData.getEffectFgPercent() + "," + " Free Throws: " + playerData.getFt() + "," + " Free Throw Attempts: " + playerData.getFtAttempts() + "," + " Free Throw Percentage: " + playerData.getFtPercent() + "," + " Offensive Rebounds: " + playerData.getOffensiveRb() + "," + " Defensive Rebounds: " + playerData.getDefensiveRb() + "," + " Total Rebounds: " + playerData.getTotalRb() + "," + " Assists: " + playerData.getAssists() + "," + " Steals: " + playerData.getSteals() + "," + " Blocks: " + playerData.getBlocks() + "," + " Turnovers: " + playerData.getTurnovers() + "," + " Personal Fouls: " + playerData.getPersonalFouls() + "," + " Points: " + playerData.getPoints() + "," + " Team: " + playerData.getTeam() + "," + " Season: " + playerData.getSeason());
-                guiPlayerList.addElement(playerString);
-                playerNames.add(playerData.getPlayerName());
+        };
+        playerTable = new JTable(tableModel);
+        sorter = new TableRowSorter<>(tableModel);
+        playerTable.setRowSorter(sorter);
+
+        // Create the search field
+        searchField = new JTextField(SEARCH_FIELD_COLUMNS);
+        searchField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent event) {
+                final String text = searchField.getText().trim();
+                if (text.isEmpty()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
             }
-        }
+        });
 
-        JList<String> playerList = new JList<>(guiPlayerList);
+        // Create the "View All" button
+        viewAllButton = new JButton("View All");
+        viewAllButton.addActionListener(event -> {
+            searchField.setText("");
+            sorter.setRowFilter(null);
+            loadAllPlayers();
+        });
 
-        JScrollPane playerListScrollPane = new JScrollPane(playerList);
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        // Set comparators for numeric columns
+        sorter.setComparator(1, (o1, o2) -> Integer.compare(Integer.parseInt((String) o1), Integer.parseInt((String) o2)));
+        sorter.setComparator(2, (o1, o2) -> Integer.compare(Integer.parseInt((String) o1), Integer.parseInt((String) o2)));
+        sorter.setComparator(3, (o1, o2) -> Integer.compare(Integer.parseInt((String) o1), Integer.parseInt((String) o2)));
 
-        this.add(title);
-        this.add(playerListScrollPane);
+        // Create a panel for the search field and button
+        final JPanel controlPanel = new JPanel();
+        controlPanel.add(new JLabel("Search:"));
+        controlPanel.add(searchField);
+        controlPanel.add(viewAllButton);
+
+        // Add components to the main panel
+        add(controlPanel, BorderLayout.NORTH);
+        add(new JScrollPane(playerTable), BorderLayout.CENTER);
+
+        // Load all players initially
+        loadAllPlayers();
     }
 
+    private void loadAllPlayers() {
+        tableModel.setRowCount(0);
+        InMemoryPlayerDataAccessObject dao = new InMemoryPlayerDataAccessObject();
+        List<PlayerData> playerDataList = dao.getAllPlayers();
+
+        for (PlayerData playerData : playerDataList) {
+            tableModel.addRow(new Object[]{
+                playerData.getPlayerName(),
+                String.valueOf(playerData.getPoints()),
+                String.valueOf(playerData.getTurnovers()),
+                String.valueOf(playerData.getSteals())
+            });
+        }
+    }
+
+    /**
+     * Updates the table with the latest player data.
+     */
+    public void updateTable() {
+        tableModel.setRowCount(0);
+        for (PlayerData player : viewModel.getState().getPlayers()) {
+            tableModel.addRow(new Object[]{
+                    player.getPlayerName(),
+                    String.valueOf(player.getPoints()),
+                    String.valueOf(player.getTurnovers()),
+                    String.valueOf(player.getSteals()),
+            });
+        }
+    }
+
+    /**
+     * Returns the name of the view.
+     * @return the name of the view
+     */
     public String getViewName() {
         return viewName;
     }
 
+    /**
+     * Sets the player controller.
+     * @param controller the player controller
+     */
+    public void setPlayerController(PlayerController controller) {
+        this.controller = controller;
+    }
 }
