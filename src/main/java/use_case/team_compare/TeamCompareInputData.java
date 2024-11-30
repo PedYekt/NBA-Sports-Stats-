@@ -1,5 +1,8 @@
 package use_case.team_compare;
 
+/**
+ * Input data for the TeamCompare use case.
+ */
 public class TeamCompareInputData {
 
     private final String team1;

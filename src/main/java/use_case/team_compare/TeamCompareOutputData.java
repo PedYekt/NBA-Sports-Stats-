@@ -1,5 +1,8 @@
 package use_case.team_compare;
 
+/**
+ * Output data for the TeamCompare use case.
+ */
 public class TeamCompareOutputData {
 
     private final boolean useCaseFailed;
