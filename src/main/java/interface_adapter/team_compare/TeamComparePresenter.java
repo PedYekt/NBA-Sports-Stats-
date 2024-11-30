@@ -4,6 +4,9 @@ import interface_adapter.ViewManagerModel;
 import use_case.team_compare.TeamCompareOutputData;
 import view.MenuView;
 
+/**
+ * The TeamCompare Presenter.
+ */
 public class TeamComparePresenter {
 
     private final TeamCompareViewModel teamCompareViewModel;
@@ -20,6 +23,11 @@ public class TeamComparePresenter {
         this.menuView = menuView;
     }
 
+    /**
+     * Uses output data to update the team compare success state and fires property changes for view manager and team
+     * compare success view.
+     * @param response the passed in output data
+     */
     public void prepareSuccessView(TeamCompareOutputData response) {
 
         final TeamCompareSuccessState successState = teamCompareSuccessViewModel.getState();
@@ -32,6 +40,9 @@ public class TeamComparePresenter {
         viewManagerModel.firePropertyChanged();
     }
 
+    /**
+     * Switches to the menu view.
+     */
     public void switchToMenuView() {
         viewManagerModel.setState(menuView.getViewName());
         viewManagerModel.firePropertyChanged();

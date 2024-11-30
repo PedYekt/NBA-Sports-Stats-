@@ -3,9 +3,11 @@ package interface_adapter.menu;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.player.PlayerViewModel;
 import interface_adapter.team.TeamViewModel;
-
 import interface_adapter.team_compare.TeamCompareViewModel;
 
+/**
+ * The presenter for the MenuView.
+ */
 public class MenuViewPresenter {
 
     private final TeamCompareViewModel teamCompareViewModel;
@@ -20,7 +22,6 @@ public class MenuViewPresenter {
         this.teamViewModel = teamViewModel;
         this.viewManagerModel = viewManagerModel;
     }
-
 
     /**
      * Switch to the team compare view.
@@ -37,8 +38,11 @@ public class MenuViewPresenter {
         viewManagerModel.setState(playerViewModel.getViewName());
         viewManagerModel.firePropertyChanged();
     }
-    
-      public void switchToTeamView() {
+
+    /**
+     * Switch to the team view.
+     */
+    public void switchToTeamView() {
         viewManagerModel.setState(teamViewModel.getViewName());
         viewManagerModel.firePropertyChanged();
     }

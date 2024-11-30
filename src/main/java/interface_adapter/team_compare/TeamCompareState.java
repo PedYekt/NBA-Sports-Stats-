@@ -1,5 +1,8 @@
 package interface_adapter.team_compare;
 
+/**
+ * The team compare use case/view's state.
+ */
 public class TeamCompareState {
 
     private String team1;
