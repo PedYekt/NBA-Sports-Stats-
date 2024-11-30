@@ -16,10 +16,6 @@ public class TeamCompareOutputData {
         this.team2 = team2;
     }
 
-    public boolean isUseCaseFailed() {
-        return useCaseFailed;
-    }
-
     public String getTeam1() {
         return team1;
     }
