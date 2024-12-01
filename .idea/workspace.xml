@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c82af2c0-ea21-4f8c-8d0f-fcb673fb42c6" name="Changes" comment="Added classes to file structures to remain consistent with team compare project structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/PlayerCompareViewFinal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/PlayerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/PlayerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerComparePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerComparePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/menu/MenuViewInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/menu/MenuViewInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareOutputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/PlayerCompareSuccessView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/PlayerCompareSuccessView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TYousaf63&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PedYekt/NBA-Sports-Stats-.git",
+    "accountId": "3eb7c0c8-8da1-4a95-9334-ab49a9018717"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "PedYekt",
+    "repository": "NBA-Sports-Stats-"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2oOFXiMnZekzTSFNGbf04PP211k" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MenuView.executor": "Run",
+    "Application.PlayerApi.executor": "Run",
+    "Application.PlayerCompareView.executor": "Run",
+    "Application.TeamApi.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "ty",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/zahid/IdeaProjects/json-simple-1.1.1.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.MenuView" />
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerApi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="api.PlayerApi" />
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerCompareView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.PlayerCompareView" />
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MenuView" />
+        <item itemvalue="Application.PlayerApi" />
+        <item itemvalue="Application.PlayerCompareView" />
+        <item itemvalue="Application.PlayerCompareView" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c82af2c0-ea21-4f8c-8d0f-fcb673fb42c6" name="Changes" comment="" />
+      <created>1730732756935</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730732756935</updated>
+      <workItem from="1730732758077" duration="3464000" />
+      <workItem from="1731940058717" duration="3295000" />
+      <workItem from="1732158173465" duration="2473000" />
+      <workItem from="1732207223871" duration="5367000" />
+      <workItem from="1732380946414" duration="10556000" />
+      <workItem from="1732545265805" duration="30707000" />
+    </task>
+    <task id="LOCAL-00001" summary="edit README to ensure that contribution graph works on Github">
+      <option name="closed" value="true" />
+      <created>1730734109098</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730734109098</updated>
+    </task>
+    <task id="LOCAL-00002" summary="testing to ensure pull request functionality">
+      <option name="closed" value="true" />
+      <created>1730734521443</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730734521443</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated readme to fit player compare responsibility, and created playercompareview class.">
+      <option name="closed" value="true" />
+      <created>1732309510198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732309510198</updated>
+    </task>
+    <task id="LOCAL-00004" summary="current placeholder for player compare view">
+      <option name="closed" value="true" />
+      <created>1732547020421</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732547020421</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added classes to file structures to remain consistent with team compare project structure">
+      <option name="closed" value="true" />
+      <created>1732549301295</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732549301295</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="ty" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="edit README to ensure that contribution graph works on Github" />
+    <MESSAGE value="testing to ensure pull request functionality" />
+    <MESSAGE value="updated readme to fit player compare responsibility, and created playercompareview class." />
+    <MESSAGE value="current placeholder for player compare view" />
+    <MESSAGE value="Added classes to file structures to remain consistent with team compare project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added classes to file structures to remain consistent with team compare project structure" />
+  </component>
+</project>
