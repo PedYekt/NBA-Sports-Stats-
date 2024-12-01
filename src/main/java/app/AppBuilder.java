@@ -1,35 +1,19 @@
 package app;
 
-import java.awt.CardLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
-
-import data_access.InMemoryPlayerDataAccessObject;
 import interface_adapter.ViewManagerModel;
-import interface_adapter.menu.MenuViewController;
-import interface_adapter.menu.MenuViewPresenter;
-import interface_adapter.player.PlayerController;
-import interface_adapter.player.PlayerPresenter;
 import interface_adapter.player.PlayerViewModel;
-import interface_adapter.team.ViewTeamController;
-import interface_adapter.team.ViewViewTeamPresenter;
-import interface_adapter.team.ViewTeamViewModel;
 import interface_adapter.team_compare.TeamCompareController;
 import interface_adapter.team_compare.TeamComparePresenter;
 import interface_adapter.team_compare.TeamCompareSuccessViewModel;
 import interface_adapter.team_compare.TeamCompareViewModel;
-import use_case.menu.MenuViewInteractor;
-import use_case.player.ViewPlayersInteractor;
-import use_case.view_team.ViewTeamInteractor;
 import use_case.team_compare.TeamCompareInteractor;
-import view.MenuView;
 import view.PlayerView;
 import view.TeamCompareSuccessView;
 import view.TeamCompareView;
-import view.TeamView;
 import view.ViewManager;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class AppBuilder {
 
@@ -44,9 +28,6 @@ public class AppBuilder {
     private TeamCompareViewModel teamCompareViewModel;
     private TeamCompareSuccessView teamCompareSuccessView;
     private TeamCompareSuccessViewModel teamCompareSuccessViewModel;
-    private ViewTeamViewModel viewTeamViewModel;
-    private TeamView teamView;
-    private MenuView menuView;
 
     public AppBuilder() {
         cardPanel.setLayout(cardLayout);
@@ -54,17 +35,8 @@ public class AppBuilder {
 
     public AppBuilder addPlayerView() {
         playerViewModel = new PlayerViewModel();
-        playerView = new PlayerView(new PlayerController(new ViewPlayersInteractor(new InMemoryPlayerDataAccessObject(),
-                new PlayerPresenter(playerViewModel, viewManagerModel, menuView))), playerViewModel);
-        cardPanel.add(playerView, playerView.getViewName());
-        return this;
-    }
-
-    public AppBuilder addPlayerUseCase() {
-        final PlayerPresenter playerPresenter = new PlayerPresenter(playerViewModel, viewManagerModel, menuView);
-        final ViewPlayersInteractor playerInteractor = new ViewPlayersInteractor(new InMemoryPlayerDataAccessObject(), playerPresenter);
-        final PlayerController playerController = new PlayerController(playerInteractor);
-        playerView.setPlayerController(playerController);
+        playerView = new PlayerView(playerViewModel);
+        cardPanel.add(playerView, "Player View");
         return this;
     }
 
@@ -84,38 +56,10 @@ public class AppBuilder {
 
     public AppBuilder addTeamCompareUseCase() {
         final TeamComparePresenter teamComparePresenter = new TeamComparePresenter(teamCompareViewModel,
-                teamCompareSuccessViewModel, viewManagerModel, menuView);
+                teamCompareSuccessViewModel, viewManagerModel);
         final TeamCompareInteractor teamCompareInteractor = new TeamCompareInteractor(teamComparePresenter);
         final TeamCompareController teamCompareController = new TeamCompareController(teamCompareInteractor);
         teamCompareView.setTeamCompareController(teamCompareController);
-        teamCompareSuccessView.setTeamCompareController(teamCompareController);
-        return this;
-    }
-
-    public AppBuilder addMenuView() {
-        menuView = new MenuView();
-        cardPanel.add(menuView, menuView.getViewName());
-        return this;
-    }
-
-    public AppBuilder addMenuUseCase() {
-        final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, viewManagerModel,
-                playerViewModel, viewTeamViewModel);
-        final MenuViewInteractor menuViewInteractor = new MenuViewInteractor(menuViewPresenter);
-        final MenuViewController menuViewController = new MenuViewController(menuViewInteractor);
-        menuView.setMenuViewController(menuViewController);
-        return this;
-
-    }
-
-    public AppBuilder addTeamView() {
-        viewTeamViewModel = new ViewTeamViewModel();
-        teamView = new TeamView(viewTeamViewModel);
-        final ViewViewTeamPresenter viewTeamPresenter = new ViewViewTeamPresenter(menuView, viewManagerModel, viewTeamViewModel);
-        final ViewTeamInteractor teamInteractor = new ViewTeamInteractor(viewTeamPresenter);
-        ViewTeamController viewTeamController = new ViewTeamController(teamInteractor);
-        teamView.setTeamController(viewTeamController);
-        cardPanel.add(teamView, teamView.getViewName());
         return this;
     }
 
@@ -125,7 +69,7 @@ public class AppBuilder {
 
         application.add(cardPanel);
 
-        viewManagerModel.setState(menuView.getViewName());
+        viewManagerModel.setState(teamCompareView.getViewName());
         viewManagerModel.firePropertyChanged();
 
         return application;

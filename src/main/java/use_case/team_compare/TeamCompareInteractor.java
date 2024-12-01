@@ -2,9 +2,6 @@ package use_case.team_compare;
 
 import interface_adapter.team_compare.TeamComparePresenter;
 
-/**
- * The TeamCompare Interactor.
- */
 public class TeamCompareInteractor {
 
     private final TeamComparePresenter teamComparePresenter;
@@ -13,17 +10,10 @@ public class TeamCompareInteractor {
         this.teamComparePresenter = teamComparePresenter;
     }
 
-    /**
-     * Switches to the menu view.
-     */
-    public void switchToMenuView() {
-        teamComparePresenter.switchToMenuView();
+    public void switchToTeamCompareSuccessView() {
+        teamComparePresenter.switchToTeamCompareSuccessView();
     }
 
-    /**
-     * Creates output data and calls the TeamCompare Presenter.
-     * @param teamCompareInputData the input data passed in
-     */
     public void execute(TeamCompareInputData teamCompareInputData) {
         final TeamCompareOutputData teamCompareOutputData = new TeamCompareOutputData(false,
                 teamCompareInputData.getTeam1(), teamCompareInputData.getTeam2());

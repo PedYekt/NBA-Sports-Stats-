@@ -2,9 +2,6 @@ package interface_adapter.team_compare;
 
 import interface_adapter.ViewModel;
 
-/**
- * The model for the TeamCompare view.
- */
 public class TeamCompareViewModel extends ViewModel<TeamCompareState> {
 
     public static final String TITLE_LABEL = "TEAM COMPARISON";

@@ -1,8 +1,5 @@
 package use_case.team_compare;
 
-/**
- * Output data for the TeamCompare use case.
- */
 public class TeamCompareOutputData {
 
     private final boolean useCaseFailed;
@@ -14,6 +11,10 @@ public class TeamCompareOutputData {
         this.useCaseFailed = useCaseFailed;
         this.team1 = team1;
         this.team2 = team2;
+    }
+
+    public boolean isUseCaseFailed() {
+        return useCaseFailed;
     }
 
     public String getTeam1() {

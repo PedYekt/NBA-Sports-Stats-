@@ -1,4 +1,4 @@
-package use_case.view_team;
+package use_case.team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,5 +46,13 @@ public class FetchTeamDataUseCase {
             e.printStackTrace();
         }
         return teamDataList;
+    }
+
+    public static void main(String[] args) {
+        final FetchTeamDataUseCase fetchTeamDataUseCase = new FetchTeamDataUseCase();
+        final List<TeamData> teamDataList = fetchTeamDataUseCase.fetchAndReturnTeamData();
+        for (TeamData teamData : teamDataList) {
+            System.out.println(teamData.getTeamName());
+        }
     }
 }
