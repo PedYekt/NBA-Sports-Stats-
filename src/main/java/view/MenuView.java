@@ -1,5 +1,8 @@
 package view;
 
+import interface_adapter.menu.MenuViewController;
+import interface_adapter.team_compare.TeamCompareController;
+
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,6 +13,7 @@ import javax.swing.ImageIcon;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -19,7 +23,8 @@ import java.io.IOException;
 
  The MenuView class is responsible for creating the menu bar for the application.
  */
-public class MenuView {
+public class MenuView extends JPanel {
+    private final String viewName = "menu view";
     private static final int TITLE_FONT_SIZE = 24;
     private static final int FRAME_WIDTH = 400;
     private static final int FRAME_HEIGHT = 400;
@@ -33,6 +38,8 @@ public class MenuView {
     private final JButton teamCompareViewButton;
     private final JLabel titleLabel;
     private final JLabel imageLabel;
+
+    private MenuViewController menuViewController;
 
     public MenuView() {
         buttonPanel = new JPanel(new BorderLayout());
@@ -70,6 +77,27 @@ public class MenuView {
         buttonPanel.add(titleLabel, BorderLayout.NORTH);
         buttonPanel.add(imageLabel, BorderLayout.CENTER);
         buttonPanel.add(buttonsPanel, BorderLayout.SOUTH);
+
+        teamCompareViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToTeamCompareView();
+
+            }
+        });
+
+        teamViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToTeamView();
+            }
+        });
+
+        this.add(buttonPanel);
+
+        playerViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToPlayerView();
+            }
+        });
     }
 
     /**
@@ -110,6 +138,14 @@ public class MenuView {
      */
     public void addCompareViewListener(ActionListener listener) {
         teamCompareViewButton.addActionListener(listener);
+    }
+
+    public String getViewName() {
+        return viewName;
+    }
+
+    public void setMenuViewController(MenuViewController menuViewController) {
+        this.menuViewController = menuViewController;
     }
 
     /**
