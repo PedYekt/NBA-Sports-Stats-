@@ -85,6 +85,12 @@ public class MenuView extends JPanel {
             }
         });
 
+        playerCompareViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToPlayerCompareView();
+            }
+        });
+
         teamViewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 menuViewController.switchToTeamView();

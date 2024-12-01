@@ -7,6 +7,10 @@ import interface_adapter.menu.MenuViewPresenter;
 import interface_adapter.player.PlayerController;
 import interface_adapter.player.PlayerPresenter;
 import interface_adapter.player.PlayerViewModel;
+import interface_adapter.player_compare.PlayerCompareController;
+import interface_adapter.player_compare.PlayerComparePresenter;
+import interface_adapter.player_compare.PlayerCompareSuccessViewModel;
+import interface_adapter.player_compare.PlayerCompareViewModel;
 import interface_adapter.team.TeamController;
 import interface_adapter.team.TeamPresenter;
 import interface_adapter.team.TeamViewModel;
@@ -16,6 +20,7 @@ import interface_adapter.team_compare.TeamCompareSuccessViewModel;
 import interface_adapter.team_compare.TeamCompareViewModel;
 import use_case.menu.MenuViewInteractor;
 import use_case.player.ViewPlayersInteractor;
+import use_case.player_compare.PlayerCompareInteractor;
 import use_case.team.TeamInteractor;
 import use_case.team_compare.TeamCompareInteractor;
 import view.*;
@@ -32,11 +37,17 @@ public class AppBuilder {
 
     private PlayerView playerView;
     private PlayerViewModel playerViewModel;
+    private PlayerCompareViewFinal playerCompareViewFinal;
+    private PlayerCompareViewModel playerCompareViewModel;
+    private PlayerCompareSuccessView playerCompareSuccessView;
+    private PlayerCompareSuccessViewModel playerCompareSuccessViewModel;
     private TeamCompareView teamCompareView;
     private TeamCompareViewModel teamCompareViewModel;
     private TeamCompareSuccessView teamCompareSuccessView;
     private TeamCompareSuccessViewModel teamCompareSuccessViewModel;
     private TeamViewModel teamViewModel;
+
+
     private TeamView teamView;
     private MenuView menuView;
 
@@ -59,6 +70,31 @@ public class AppBuilder {
         playerView.setPlayerController(playerController);
         return this;
     }
+
+    public AppBuilder addPlayerCompareViewFinal() {
+        playerCompareViewModel = new PlayerCompareViewModel();
+        playerCompareViewFinal = new PlayerCompareViewFinal(playerCompareViewModel);
+        cardPanel.add(playerCompareViewFinal, playerCompareViewFinal.getViewName());
+        return this;
+    }
+
+    public AppBuilder addPlayerCompareSuccessView() {
+        playerCompareSuccessViewModel = new PlayerCompareSuccessViewModel();
+        playerCompareSuccessView = new PlayerCompareSuccessView(playerCompareSuccessViewModel);
+        cardPanel.add(playerCompareSuccessView, playerCompareSuccessView.getViewName());
+        return this;
+    }
+
+    public AppBuilder addPlayerCompareUseCase() {
+        final PlayerComparePresenter playerComparePresenter = new PlayerComparePresenter(playerCompareViewModel,
+                playerCompareSuccessViewModel, viewManagerModel, menuView);
+        final PlayerCompareInteractor playerCompareInteractor = new PlayerCompareInteractor(playerComparePresenter);
+        final PlayerCompareController playerCompareController = new PlayerCompareController(playerCompareInteractor);
+        playerCompareViewFinal.setPlayerCompareController(playerCompareController);
+        playerCompareSuccessView.setPlayerCompareController(playerCompareController);
+        return this;
+    }
+
     public AppBuilder addTeamCompareView() {
         teamCompareViewModel = new TeamCompareViewModel();
         teamCompareView = new TeamCompareView(teamCompareViewModel);
@@ -83,6 +119,7 @@ public class AppBuilder {
         return this;
     }
 
+
     public AppBuilder addMenuView() {
         menuView = new MenuView();
         cardPanel.add(menuView, menuView.getViewName());
@@ -90,8 +127,8 @@ public class AppBuilder {
     }
 
     public AppBuilder addMenuUseCase() {
-        final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, viewManagerModel,
-                playerViewModel, teamViewModel);
+        final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, playerCompareViewModel,
+                viewManagerModel, playerViewModel, teamViewModel);
         final MenuViewInteractor menuViewInteractor = new MenuViewInteractor(menuViewPresenter);
         final MenuViewController menuViewController = new MenuViewController(menuViewInteractor);
         menuView.setMenuViewController(menuViewController);
