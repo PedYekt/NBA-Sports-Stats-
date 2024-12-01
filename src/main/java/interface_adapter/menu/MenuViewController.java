@@ -33,4 +33,11 @@ public class MenuViewController {
     public void switchToTeamView() {
         menuViewInteractor.switchToTeamView();
     }
+
+    /**
+     * Switches to PlayerCompare view.
+     */
+    public void switchToPlayerCompareView() {
+        menuViewInteractor.switchToPlayerCompareView();
+    }
 }

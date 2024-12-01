@@ -4,28 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffec0f94-03af-4414-9c79-f802c9cff330" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/team/TeamState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/team/ViewTeamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/team/ViewViewTeamPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/view_team/ViewTeamInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/view_team/ViewTeamInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/view_team/ViewTeamOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/view_team/ViewTeamResponseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/team_case/TeamInteractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="ffec0f94-03af-4414-9c79-f802c9cff330" name="Changes" comment="unversioned files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/InMemoryTeamDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/InMemoryTeamDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/menu/MenuViewPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/team/TeamController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/team/TeamPresenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/team/TeamViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/team/ViewTeamViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/team/FetchTeamDataUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/view_team/FetchTeamDataUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/team/TeamInputBoundary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/team/TeamInteractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/team/TeamOutputBoundary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/team/TeamRequestModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/TeamView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TeamView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerComparePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerComparePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareSuccessViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/player_compare/PlayerCompareViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/player_compare/PlayerCompareOutputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/PlayerCompareSuccessView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/PlayerCompareSuccessView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/PlayerCompareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/PlayerCompareView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +35,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ty" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -48,12 +48,12 @@
     &quot;assignee&quot;: &quot;Frank-ZH04&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PedYekt/NBA-Sports-Stats-.git&quot;,
-    &quot;accountId&quot;: &quot;66e85e02-61d6-4f64-ba49-33fd399bdee5&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PedYekt/NBA-Sports-Stats-.git",
+    "accountId": "3eb7c0c8-8da1-4a95-9334-ab49a9018717"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -69,7 +69,8 @@
     "Application.Main.executor": "Run",
     "JUnit.TeamInteractorTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Frank",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "taimooreyousaf",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/frank/OneDrive - University of Toronto/Desktop/RaK5mle.xml",
@@ -82,11 +83,35 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -102,10 +127,15 @@
       <workItem from="1732806325449" duration="4557000" />
       <workItem from="1732810948776" duration="4897000" />
       <workItem from="1732990877840" duration="14831000" />
+      <workItem from="1733034979515" duration="1210000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="unversioned files" />
   </component>
 </project>

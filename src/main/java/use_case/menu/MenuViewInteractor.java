@@ -33,4 +33,11 @@ public class MenuViewInteractor {
     public void switchToTeamView() {
         menuViewPresenter.switchToTeamView();
     }
+
+    /**
+     * Switches to PlayerCompare view.
+     */
+    public void switchToPlayerCompareView() {
+        menuViewPresenter.switchToPlayerCompareView();
+    }
 }
