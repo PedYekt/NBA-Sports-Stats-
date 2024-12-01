@@ -1,4 +1,4 @@
-package use_case.team;
+package use_case.view_team;
 
 import java.util.ArrayList;
 import java.util.List;
