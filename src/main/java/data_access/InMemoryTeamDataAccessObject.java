@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.TeamData;
-import use_case.team.FetchTeamDataUseCase;
+import use_case.view_team.FetchTeamDataUseCase;
 
 /**
  * In-memory implementation of the TeamRepository interface.
