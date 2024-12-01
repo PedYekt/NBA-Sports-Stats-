@@ -11,7 +11,7 @@ import interface_adapter.player.PlayerDataParser;
  * FetchPlayerDataUseCase class to fetch player data.
  */
 public class FetchPlayerDataUseCase {
-    FetchPlayerDataUseCase() {
+    public FetchPlayerDataUseCase() {
         // Default constructor
     }
 

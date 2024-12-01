@@ -3,7 +3,6 @@ package interface_adapter.player;
 import java.util.ArrayList;
 import java.util.List;
 
-import api.PlayerApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,38 +25,13 @@ public class PlayerDataParser {
         for (int i = 0; i < jsonArray.length(); i++) {
             final JSONObject jsonObject = jsonArray.getJSONObject(i);
             final PlayerData playerData = new PlayerData(
-                    jsonObject.optInt("id"),
-                    jsonObject.optString("playerName"),
-                    jsonObject.optString("position"),
-                    jsonObject.optInt("age"),
-                    jsonObject.optInt("games"),
-                    jsonObject.optInt("gamesStarted"),
-                    jsonObject.optDouble("minutesPg"),
-                    jsonObject.optInt("fieldGoals"),
-                    jsonObject.optInt("fieldAttempts"),
-                    jsonObject.optDouble("fieldPercent"),
-                    jsonObject.optInt("threeFg"),
-                    jsonObject.optInt("threeAttempts"),
-                    jsonObject.optDouble("threePercent"),
-                    jsonObject.optInt("twoFg"),
-                    jsonObject.optInt("twoAttempts"),
-                    jsonObject.optDouble("twoPercent"),
-                    jsonObject.optDouble("effectFgPercent"),
-                    jsonObject.optInt("ft"),
-                    jsonObject.optInt("ftAttempts"),
-                    jsonObject.optDouble("ftPercent"),
-                    jsonObject.optInt("offensiveRb"),
-                    jsonObject.optInt("defensiveRb"),
-                    jsonObject.optInt("totalRb"),
-                    jsonObject.optInt("assists"),
-                    jsonObject.optInt("steals"),
-                    jsonObject.optInt("blocks"),
-                    jsonObject.optInt("turnovers"),
-                    jsonObject.optInt("personalFouls"),
-                    jsonObject.optInt("points"),
-                    jsonObject.optString("team"),
-                    jsonObject.optInt("season"),
-                    jsonObject.optString("playerId")
+                    jsonObject.getString("playerName"),
+                    jsonObject.getString("position"),
+                    jsonObject.getInt("steals"),
+                    jsonObject.getInt("blocks"),
+                    jsonObject.getInt("turnovers"),
+                    jsonObject.getInt("points"),
+                    jsonObject.getString("team")
             );
             playerDataList.add(playerData);
         }

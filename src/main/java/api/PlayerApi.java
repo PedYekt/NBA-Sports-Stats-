@@ -1,8 +1,10 @@
 package api;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.io.IOException;
+
+import entity.PlayerRepository;
 
 /**
  * PlayerDataAccessObject class to handle player data access.
@@ -21,13 +23,10 @@ public class PlayerApi {
         String playerDataString = "";
         try {
             playerDataString = new String(Files.readAllBytes(Paths.get("src/main/java/api/playerApi.json")));
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        catch (IOException exception) {
+            exception.printStackTrace();
         }
         return playerDataString;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(fetchAllPlayersData());
     }
 }

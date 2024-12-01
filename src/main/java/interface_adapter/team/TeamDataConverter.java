@@ -64,7 +64,12 @@ public class TeamDataConverter {
 
             // Compute scores manually for the team
             final int totalPoints = getTotalPoints(playerDataList, playerApiAbbreviation);
+            final int totalTurnovers = getTotalTurnovers(playerDataList, playerApiAbbreviation);
+            final int totalSteals = getTotalSteals(playerDataList, playerApiAbbreviation);
+
             teamData.setPoints(totalPoints);
+            teamData.setTurnovers(totalTurnovers);
+            teamData.setSteals(totalSteals);
 
             return teamData;
         }
@@ -82,5 +87,25 @@ public class TeamDataConverter {
             }
         }
         return totalPoints;
+    }
+
+    private static int getTotalTurnovers(List<PlayerData> playerDataList, String playerApiAbbreviation) {
+        int totalTurnovers = 0;
+        for (PlayerData playerData : playerDataList) {
+            if (playerData.getTeam().equals(playerApiAbbreviation)) {
+                totalTurnovers += playerData.getTurnovers();
+            }
+        }
+        return totalTurnovers;
+    }
+
+    private static int getTotalSteals(List<PlayerData> playerDataList, String playerApiAbbreviation) {
+        int totalSteals = 0;
+        for (PlayerData playerData : playerDataList) {
+            if (playerData.getTeam().equals(playerApiAbbreviation)) {
+                totalSteals += playerData.getSteals();
+            }
+        }
+        return totalSteals;
     }
 }
