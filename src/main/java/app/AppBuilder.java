@@ -20,14 +20,21 @@ import interface_adapter.team_compare.TeamCompareController;
 import interface_adapter.team_compare.TeamComparePresenter;
 import interface_adapter.team_compare.TeamCompareSuccessViewModel;
 import interface_adapter.team_compare.TeamCompareViewModel;
+import interface_adapter.player_compare.PlayerCompareController;
+import interface_adapter.player_compare.PlayerComparePresenter;
+import interface_adapter.player_compare.PlayerCompareSuccessViewModel;
+import interface_adapter.player_compare.PlayerCompareViewModel;
 import use_case.menu.MenuViewInteractor;
 import use_case.player.ViewPlayersInteractor;
 import use_case.view_team.ViewTeamInteractor;
 import use_case.team_compare.TeamCompareInteractor;
+import use_case.player_compare.PlayerCompareInteractor;
 import view.MenuView;
 import view.PlayerView;
 import view.TeamCompareSuccessView;
 import view.TeamCompareView;
+import view.PlayerCompareSuccessView;
+import view.PlayerCompareView;
 import view.TeamView;
 import view.ViewManager;
 
@@ -44,6 +51,10 @@ public class AppBuilder {
     private TeamCompareViewModel teamCompareViewModel;
     private TeamCompareSuccessView teamCompareSuccessView;
     private TeamCompareSuccessViewModel teamCompareSuccessViewModel;
+    private PlayerCompareView playerCompareView;
+    private PlayerCompareViewModel playerCompareViewModel;
+    private PlayerCompareSuccessView playerCompareSuccessView;
+    private PlayerCompareSuccessViewModel playerCompareSuccessViewModel;
     private ViewTeamViewModel viewTeamViewModel;
     private TeamView teamView;
     private MenuView menuView;
@@ -92,6 +103,30 @@ public class AppBuilder {
         return this;
     }
 
+    public AppBuilder addPlayerCompareView() {
+        playerCompareViewModel = new PlayerCompareViewModel();
+        playerCompareView = new PlayerCompareView(playerCompareViewModel);
+        cardPanel.add(playerCompareView, playerCompareView.getViewName());
+        return this;
+    }
+
+    public AppBuilder addPlayerCompareSuccessView() {
+        playerCompareSuccessViewModel = new PlayerCompareSuccessViewModel();
+        playerCompareSuccessView = new PlayerCompareSuccessView(playerCompareSuccessViewModel);
+        cardPanel.add(playerCompareSuccessView, playerCompareSuccessView.getViewName());
+        return this;
+    }
+
+    public AppBuilder addPlayerCompareUseCase() {
+        final PlayerComparePresenter playerComparePresenter = new PlayerComparePresenter(playerCompareViewModel,
+                playerCompareSuccessViewModel, viewManagerModel, menuView);
+        final PlayerCompareInteractor playerCompareInteractor = new PlayerCompareInteractor(playerComparePresenter);
+        final PlayerCompareController playerCompareController = new PlayerCompareController(playerCompareInteractor);
+        playerCompareView.setPlayerCompareController(playerCompareController);
+        playerCompareSuccessView.setPlayerCompareController(playerCompareController);
+        return this;
+    }
+
     public AppBuilder addMenuView() {
         menuView = new MenuView();
         cardPanel.add(menuView, menuView.getViewName());
@@ -99,8 +134,8 @@ public class AppBuilder {
     }
 
     public AppBuilder addMenuUseCase() {
-        final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, viewManagerModel,
-                playerViewModel, viewTeamViewModel);
+        final MenuViewPresenter menuViewPresenter = new MenuViewPresenter(teamCompareViewModel, playerCompareViewModel,
+                viewManagerModel, playerViewModel, viewTeamViewModel);
         final MenuViewInteractor menuViewInteractor = new MenuViewInteractor(menuViewPresenter);
         final MenuViewController menuViewController = new MenuViewController(menuViewInteractor);
         menuView.setMenuViewController(menuViewController);
