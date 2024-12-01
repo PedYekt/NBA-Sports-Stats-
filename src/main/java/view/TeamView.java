@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -113,6 +114,10 @@ public class TeamView extends JPanel {
                 }
             }
         });
+
+        sorter.setComparator(3, Comparator.comparingInt(item -> (int) item));
+        sorter.setComparator(4, Comparator.comparingInt(item -> (int) item));
+        sorter.setComparator(5, Comparator.comparingInt(item -> (int) item));
 
         // Add mouse listener for toggle sorting behavior
         table.getTableHeader().addMouseListener(new MouseAdapter() {

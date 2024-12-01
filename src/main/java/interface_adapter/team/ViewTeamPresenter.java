@@ -8,13 +8,13 @@ import view.MenuView;
 /**
  * The presenter of the ViewTeam use case.
  */
-public class ViewViewTeamPresenter implements ViewTeamOutputBoundary {
+public class ViewTeamPresenter implements ViewTeamOutputBoundary {
 
     private final MenuView menuView;
     private final ViewManagerModel viewManagerModel;
     private final ViewTeamViewModel viewModel;
 
-    public ViewViewTeamPresenter(MenuView menuView, ViewManagerModel viewManagerModel, ViewTeamViewModel viewModel) {
+    public ViewTeamPresenter(MenuView menuView, ViewManagerModel viewManagerModel, ViewTeamViewModel viewModel) {
         this.menuView = menuView;
         this.viewManagerModel = viewManagerModel;
         this.viewModel = viewModel;

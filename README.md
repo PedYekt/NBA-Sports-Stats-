@@ -16,7 +16,7 @@ The application gives users access to information for both individual NBA athlet
     - Steven is a fan of the Toronto Raptors, and he wants to evaluate how statistically well the team is doing this season in comparison to the Denver Nuggets, who they play in their next game. Steven uses the application’s compare function to view the two teams’ average statistics during the current season. Specifically, Steven is interested in comparing the two teams’ average points per game, field goal percentage, and three point percentage
 
 3. **Michael's Story** (Frank's Responsibility)
-    - Trying to identify teams with top offense this season, and teams with few turnovers, trying to analyze the teams with extremely efficient offenses.
+    - Michael is an NBA stats analyst, Trying to identify teams with top offense this season, and teams with few turnovers, trying to analyze the teams with extremely efficient offenses.
 
 4. **George's Story** (Taimoore's Responsibility)
     - George is an avid fan of fantasy basketball and wants to compare the statistics of two players head-to-head. He uses the application to search for two players and compare their points per game, assists per game, and rebounds per game, among other statistics. The app will list the better stats in bold, indiciating where one player might be better than the other. This information helps George make an informed decision on which players to draft and put in his lineup for his fantasy basketball team.

@@ -14,7 +14,7 @@ import interface_adapter.player.PlayerController;
 import interface_adapter.player.PlayerPresenter;
 import interface_adapter.player.PlayerViewModel;
 import interface_adapter.team.ViewTeamController;
-import interface_adapter.team.ViewViewTeamPresenter;
+import interface_adapter.team.ViewTeamPresenter;
 import interface_adapter.team.ViewTeamViewModel;
 import interface_adapter.team_compare.TeamCompareController;
 import interface_adapter.team_compare.TeamComparePresenter;
@@ -111,7 +111,7 @@ public class AppBuilder {
     public AppBuilder addTeamView() {
         viewTeamViewModel = new ViewTeamViewModel();
         teamView = new TeamView(viewTeamViewModel);
-        final ViewViewTeamPresenter viewTeamPresenter = new ViewViewTeamPresenter(menuView, viewManagerModel, viewTeamViewModel);
+        final ViewTeamPresenter viewTeamPresenter = new ViewTeamPresenter(menuView, viewManagerModel, viewTeamViewModel);
         final ViewTeamInteractor teamInteractor = new ViewTeamInteractor(viewTeamPresenter);
         ViewTeamController viewTeamController = new ViewTeamController(teamInteractor);
         teamView.setTeamController(viewTeamController);

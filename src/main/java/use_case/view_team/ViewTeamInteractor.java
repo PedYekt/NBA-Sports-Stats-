@@ -4,26 +4,26 @@ import java.util.List;
 
 import data_access.InMemoryTeamDataAccessObject;
 import entity.TeamData;
-import interface_adapter.team.ViewViewTeamPresenter;
+import interface_adapter.team.ViewTeamPresenter;
 
 /**
  * The interactor of ViewTeam use case.
  */
 public class ViewTeamInteractor implements ViewTeamInputBoundary {
 
-    private final ViewViewTeamPresenter viewTeamPresenter;
+    private final ViewTeamPresenter viewTeamPresenter;
 
-    public ViewTeamInteractor(ViewViewTeamPresenter viewTeamPresenter) {
+    public ViewTeamInteractor(ViewTeamPresenter viewTeamPresenter) {
         this.viewTeamPresenter = viewTeamPresenter;
     }
 
     /**
-     * Loads the team data.
+     * Loads the team data and calls the ViewTeam presenter.
      */
     public void loadTeams() {
         final List<TeamData> teams = new InMemoryTeamDataAccessObject().getAllTeams();
-        final ViewTeamResponseModel requestModel = new ViewTeamResponseModel(teams);
-        viewTeamPresenter.presentTeams(requestModel);
+        final ViewTeamResponseModel responseModel = new ViewTeamResponseModel(teams);
+        viewTeamPresenter.presentTeams(responseModel);
     }
 
     /**

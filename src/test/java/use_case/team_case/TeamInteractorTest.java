@@ -2,7 +2,7 @@ package use_case.team_case;
 
 import entity.TeamData;
 import interface_adapter.ViewManagerModel;
-import interface_adapter.team.ViewViewTeamPresenter;
+import interface_adapter.team.ViewTeamPresenter;
 import interface_adapter.team.ViewTeamViewModel;
 import org.junit.jupiter.api.Test;
 import use_case.view_team.ViewTeamInteractor;
@@ -28,7 +28,7 @@ class TeamInteractorTest {
         ViewManagerModel manager = new ViewManagerModel();
         MenuView menu = new MenuView();
 
-        ViewViewTeamPresenter presenter = new ViewViewTeamPresenter(menu, manager, viewModel) {
+        ViewTeamPresenter presenter = new ViewTeamPresenter(menu, manager, viewModel) {
             @Override
             public void presentTeams(ViewTeamResponseModel requestModel) {
                 List<TeamData> receivedTeams = requestModel.getTeams();
