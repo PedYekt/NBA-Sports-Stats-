@@ -1,8 +1,12 @@
 package use_case.player;
 
-import entity.PlayerData;
 import java.util.List;
 
+import entity.PlayerData;
+
+/**
+ * ViewPlayersResponseModel class to get player data.
+ */
 public class ViewPlayersResponseModel {
     private final List<PlayerData> players;
 

@@ -4,7 +4,6 @@ import interface_adapter.ViewManagerModel;
 import use_case.player.ViewPlayersOutputBoundary;
 import use_case.player.ViewPlayersResponseModel;
 import view.MenuView;
-import view.PlayerView;
 
 /**
  * The player presenter.
@@ -27,6 +26,9 @@ public class PlayerPresenter implements ViewPlayersOutputBoundary {
         viewModel.setState(state);
     }
 
+    /**
+     * Switches to the menu view.
+     */
     public void switchToMenuView() {
         viewManagerModel.setState(menuView.getViewName());
         viewManagerModel.firePropertyChanged();

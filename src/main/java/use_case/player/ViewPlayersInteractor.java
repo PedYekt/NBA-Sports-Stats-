@@ -28,4 +28,12 @@ public class ViewPlayersInteractor implements ViewPlayersInputBoundary {
     public void switchToMenuView() {
         presenter.switchToMenuView();
     }
+
+    /**
+     * Get all players.
+     * @return list of players
+     */
+    public List<PlayerData> getPlayers() {
+        return playerRepository.getAllPlayers();
+    }
 }

@@ -1,19 +1,31 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
+
 import data_access.InMemoryPlayerDataAccessObject;
 import entity.PlayerData;
 import interface_adapter.player.PlayerController;
 import interface_adapter.player.PlayerViewModel;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.List;
-
+/**
+ * The view for displaying player data.
+ */
 public class PlayerView extends JPanel {
+
     private static final int SEARCH_FIELD_COLUMNS = 20;
     private final JTextField searchField;
     private final JButton viewAllButton;
@@ -33,7 +45,8 @@ public class PlayerView extends JPanel {
         setLayout(new BorderLayout());
 
         // Create the table model and JTable
-        tableModel = new DefaultTableModel(new Object[]{"Player Name", "Points", "Turnovers", "Steals"}, 0) {
+        tableModel = new DefaultTableModel(
+                new Object[]{"Player Name", "Position", "Team Name", "Points", "Turnovers", "Steals"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -43,6 +56,15 @@ public class PlayerView extends JPanel {
         sorter = new TableRowSorter<>(tableModel);
         playerTable.setRowSorter(sorter);
 
+        // Make columns non-movable
+        final TableColumnModel columnModel = playerTable.getColumnModel();
+        columnModel.getColumn(0).setResizable(false);
+        columnModel.getColumn(1).setResizable(false);
+        columnModel.getColumn(2).setResizable(false);
+        columnModel.getColumn(3).setResizable(false);
+        columnModel.getColumn(4).setResizable(false);
+        columnModel.getColumn(5).setResizable(false);
+
         // Create the search field
         searchField = new JTextField(SEARCH_FIELD_COLUMNS);
         searchField.addKeyListener(new KeyAdapter() {
@@ -51,7 +73,8 @@ public class PlayerView extends JPanel {
                 final String text = searchField.getText().trim();
                 if (text.isEmpty()) {
                     sorter.setRowFilter(null);
-                } else {
+                }
+                else {
                     sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
                 }
             }
@@ -90,23 +113,35 @@ public class PlayerView extends JPanel {
 
     private void loadAllPlayers() {
         tableModel.setRowCount(0);
-        InMemoryPlayerDataAccessObject dao = new InMemoryPlayerDataAccessObject();
-        List<PlayerData> playerDataList = dao.getAllPlayers();
+        final InMemoryPlayerDataAccessObject dao = new InMemoryPlayerDataAccessObject();
+        final List<PlayerData> playerDataList = dao.getAllPlayers();
 
         for (PlayerData playerData : playerDataList) {
             tableModel.addRow(new Object[]{
                 playerData.getPlayerName(),
+                playerData.getPosition(),
+                playerData.getTeam(),
                 String.valueOf(playerData.getPoints()),
                 String.valueOf(playerData.getTurnovers()),
-                String.valueOf(playerData.getSteals())
+                String.valueOf(playerData.getSteals()),
             });
         }
     }
 
+    /**
+     * Returns the name of the view.
+     *
+     * @return the name of the view
+     */
     public String getViewName() {
         return viewName;
     }
 
+    /**
+     * Sets the player controller for this view.
+     *
+     * @param controller the player controller
+     */
     public void setPlayerController(PlayerController controller) {
         this.controller = controller;
     }
