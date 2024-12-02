@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -55,6 +56,11 @@ public class PlayerView extends JPanel {
         playerTable = new JTable(tableModel);
         sorter = new TableRowSorter<>(tableModel);
         playerTable.setRowSorter(sorter);
+
+        // Set custom comparators for numeric columns
+        sorter.setComparator(3, Comparator.comparingInt(value -> Integer.parseInt((String) value)));
+        sorter.setComparator(4, Comparator.comparingInt(value -> Integer.parseInt((String) value)));
+        sorter.setComparator(5, Comparator.comparingInt(value -> Integer.parseInt((String) value)));
 
         // Make columns non-movable
         final TableColumnModel columnModel = playerTable.getColumnModel();
