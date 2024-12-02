@@ -1,11 +1,26 @@
 # NBA Stats Application
-The application gives users access to information for both individual NBA athletes and NBA teams. Users can view player data and team statistics. The application displays updated stats and comprehensive data reporting. Users can quickly access information on various teams and players. Additionally, the application allows users to compare two teams or two players, providing a detailed analysis of their performance metrics.
+Statistics are an essential part of sport, and basketball is no different. It provides insights onto team and player performance and allows individuals to make predictions and judgements. The NBA Stats Application gives users access to information for both individual NBA athletes and NBA teams. Users can view player data and team statistics. The application displays updated stats and comprehensive data reporting. Users can quickly access information on various teams and players. Additionally, the application allows users to compare two teams or two players, providing a detailed analysis of their performance metrics. The program was made by basketball fans and intended to be used by both fans of the sport as well as potential newcomers of all audiences and ages.
 ## Team Members
 
 - **Pedram** - [GitHub: pedram-github](https://github.com/PedYekt)
 - **Emanuel** - [GitHub: emanuel-github](https://github.com/EmanuelGrillone)
 - **Frank** - [GitHub: frank-github](https://github.com/Frank-ZH04)
 - **Taimoore** - [GitHub: taimoore-github](https://github.com/TYousaf63)
+
+## Table of Contents
+
+- [NBA Stats Application](#nba-stats-application)
+  - [Team Members](#team-members)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [User Stories](#user-stories)
+
+## Installation
+
+- This is a Java Swing application. It can be run on Windows or MacOS, and requires a Java Development Kit, including Java Virtual Machine. This can be achieve through an IDE such as IntelliJ. 
+- To clone the application to your local IDE, retrieve the repository link from the green "Code" button on the GitHub repository page - https://github.com/PedYekt/NBA-Sports-Stats- - and create a new project from version control. 
+
+
 
 ## User Stories
 
