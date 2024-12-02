@@ -20,7 +20,7 @@ import interface_adapter.player_compare.PlayerCompareViewModel;
  */
 public class PlayerCompareView extends JPanel {
 
-    private final String viewName = "player compare view";
+    private final String viewName = "player compare";
     private static final int SEARCH_FIELD_COLUMNS = 20;
 
     private final JTextField searchField1;
