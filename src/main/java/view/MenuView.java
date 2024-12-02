@@ -98,6 +98,12 @@ public class MenuView extends JPanel {
                 menuViewController.switchToPlayerView();
             }
         });
+
+        playerCompareViewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuViewController.switchToPlayerCompareView();
+            }
+        });
     }
 
     /**
