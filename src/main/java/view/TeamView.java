@@ -51,7 +51,11 @@ public class TeamView extends JPanel {
         title.setFont(new Font("Arial", Font.BOLD, size));
         this.add(title, BorderLayout.NORTH);
 
-        final InMemoryTeamDataAccessObject inMemoryTeamDataAccessObject = new InMemoryTeamDataAccessObject();
+        final InMemoryTeamDataAccessObject inMemoryTeamDataAccessObject = new
+                InMemoryTeamDataAccessObject
+                        .Builder()
+                .fetchTeamData()
+                .build();
         final List<TeamData> teamDataList1 = inMemoryTeamDataAccessObject.getAllTeams();
         final List<String> columnNames = new ArrayList<>(Arrays.asList("Team Name", "Conference", "City", "Points",
                 "Turnovers", "Steals"));

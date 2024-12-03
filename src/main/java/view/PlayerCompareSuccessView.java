@@ -34,7 +34,11 @@ public class PlayerCompareSuccessView extends JPanel implements PropertyChangeLi
         this.playerCompareSuccessViewModel.addPropertyChangeListener(this);
 
         // Load all players
-        InMemoryPlayerDataAccessObject players = new InMemoryPlayerDataAccessObject();
+        InMemoryPlayerDataAccessObject players = new
+                InMemoryPlayerDataAccessObject.Builder()
+                .fetchPlayerData()
+                .build();
+
         this.playerList = players.getAllPlayers();
 
         // Set layout

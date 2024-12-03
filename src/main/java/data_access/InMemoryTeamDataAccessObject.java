@@ -4,28 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.TeamData;
+import entity.TeamRepository;
 import use_case.view_team.FetchTeamDataUseCase;
 
 /**
  * In-memory implementation of the TeamRepository interface.
  */
-public class InMemoryTeamDataAccessObject {
+public class InMemoryTeamDataAccessObject implements TeamRepository {
     private final List<TeamData> teamDataList;
 
-    /**
-     * Constructor to initialize the in-memory data store.
-     */
-    public InMemoryTeamDataAccessObject() {
-        this.teamDataList = new ArrayList<>();
-        populateData();
-    }
-
-    /**
-     * Populates the in-memory data store with data fetched from the use case.
-     */
-    private void populateData() {
-        final FetchTeamDataUseCase fetchTeamDataUseCase = new FetchTeamDataUseCase();
-        teamDataList.addAll(fetchTeamDataUseCase.fetchAndReturnTeamData());
+    private InMemoryTeamDataAccessObject(Builder builder) {
+        this.teamDataList = builder.teamDataList;
     }
 
     /**
@@ -50,5 +39,33 @@ public class InMemoryTeamDataAccessObject {
             }
         }
         return null;
+    }
+
+    public static class Builder {
+        private final List<TeamData> teamDataList;
+
+        public Builder() {
+            this.teamDataList = new ArrayList<>();
+        }
+
+        /**
+         * Fetches team data from the use case and adds it to the list.
+         *
+         * @return the Builder
+         */
+        public Builder fetchTeamData() {
+            final FetchTeamDataUseCase fetchTeamDataUseCase = new FetchTeamDataUseCase();
+            teamDataList.addAll(fetchTeamDataUseCase.fetchAndReturnTeamData());
+            return this;
+        }
+
+        /**
+         * Builds the InMemoryTeamDataAccessObject.
+         *
+         * @return the InMemoryTeamDataAccessObject
+         */
+        public InMemoryTeamDataAccessObject build() {
+            return new InMemoryTeamDataAccessObject(this);
+        }
     }
 }

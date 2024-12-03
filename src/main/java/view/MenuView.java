@@ -153,23 +153,4 @@ public class MenuView extends JPanel {
     public void setMenuViewController(MenuViewController menuViewController) {
         this.menuViewController = menuViewController;
     }
-
-    /**
-
-     The main method to test the MenuView class.
-
-     @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        final JFrame frame = new JFrame("Menu View Test");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-
-        final MenuView menuView = new MenuView();
-        frame.add(menuView.getButtonPanel());
-
-        frame.setVisible(true);
-
-    }
-
 }

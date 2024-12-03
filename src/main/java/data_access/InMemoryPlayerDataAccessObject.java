@@ -13,19 +13,8 @@ import use_case.player.FetchPlayerDataUseCase;
 public class InMemoryPlayerDataAccessObject implements PlayerRepository {
     private final List<PlayerData> playerDataList;
 
-    /**
-     * Constructor to initialize the in-memory data store.
-     */
-    public InMemoryPlayerDataAccessObject() {
-        this.playerDataList = new ArrayList<>();
-        populateData();
-    }
-
-    /**
-     * Populates the in-memory data store with data fetched from the use case.
-     */
-    private void populateData() {
-        playerDataList.addAll(FetchPlayerDataUseCase.fetchAndReturnPlayerData());
+    private InMemoryPlayerDataAccessObject(Builder builder) {
+        this.playerDataList = builder.playerDataList;
     }
 
     /**
@@ -52,5 +41,33 @@ public class InMemoryPlayerDataAccessObject implements PlayerRepository {
             }
         }
         return null;
+    }
+
+    public static class Builder {
+        private final List<PlayerData> playerDataList;
+
+        public Builder() {
+            this.playerDataList = new ArrayList<>();
+        }
+
+        /**
+         * Fetches player data from the use case and adds it to the list.
+         *
+         * @return the Builder
+         */
+        public Builder fetchPlayerData() {
+            final FetchPlayerDataUseCase fetchPlayerDataUseCase = new FetchPlayerDataUseCase();
+            playerDataList.addAll(fetchPlayerDataUseCase.fetchAndReturnPlayerData());
+            return this;
+        }
+
+        /**
+         * Builds the InMemoryPlayerDataAccessObject.
+         *
+         * @return the InMemoryPlayerDataAccessObject
+         */
+        public InMemoryPlayerDataAccessObject build() {
+            return new InMemoryPlayerDataAccessObject(this);
+        }
     }
 }

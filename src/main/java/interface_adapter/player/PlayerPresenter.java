@@ -13,6 +13,12 @@ public class PlayerPresenter implements ViewPlayersOutputBoundary {
     private final ViewManagerModel viewManagerModel;
     private final MenuView menuView;
 
+    /**
+     * Constructor for PlayerPresenter.
+     * @param viewModel the view model
+     * @param viewManagerModel the view manager model
+     * @param menuView the menu view
+     */
     public PlayerPresenter(PlayerViewModel viewModel, ViewManagerModel viewManagerModel, MenuView menuView) {
         this.viewModel = viewModel;
         this.viewManagerModel = viewManagerModel;
