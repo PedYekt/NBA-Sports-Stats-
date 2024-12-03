@@ -21,7 +21,12 @@ public class ViewTeamInteractor implements ViewTeamInputBoundary {
      * Loads the team data and calls the ViewTeam presenter.
      */
     public void loadTeams() {
-        final List<TeamData> teams = new InMemoryTeamDataAccessObject().getAllTeams();
+        final List<TeamData> teams = new
+                InMemoryTeamDataAccessObject
+                        .Builder()
+                .fetchTeamData()
+                .build()
+                .getAllTeams();
         final ViewTeamResponseModel responseModel = new ViewTeamResponseModel(teams);
         viewTeamPresenter.presentTeams(responseModel);
     }

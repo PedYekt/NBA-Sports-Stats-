@@ -65,7 +65,8 @@ public class AppBuilder {
 
     public AppBuilder addPlayerView() {
         playerViewModel = new PlayerViewModel();
-        playerView = new PlayerView(new PlayerController(new ViewPlayersInteractor(new InMemoryPlayerDataAccessObject(),
+        playerView = new PlayerView(new PlayerController(new ViewPlayersInteractor(new
+                InMemoryPlayerDataAccessObject.Builder().fetchPlayerData().build(),
                 new PlayerPresenter(playerViewModel, viewManagerModel, menuView))), playerViewModel);
         cardPanel.add(playerView, playerView.getViewName());
         return this;
@@ -73,7 +74,8 @@ public class AppBuilder {
 
     public AppBuilder addPlayerUseCase() {
         final PlayerPresenter playerPresenter = new PlayerPresenter(playerViewModel, viewManagerModel, menuView);
-        final ViewPlayersInteractor playerInteractor = new ViewPlayersInteractor(new InMemoryPlayerDataAccessObject(), playerPresenter);
+        final ViewPlayersInteractor playerInteractor = new ViewPlayersInteractor(new
+                InMemoryPlayerDataAccessObject.Builder().fetchPlayerData().build(), playerPresenter);
         final PlayerController playerController = new PlayerController(playerInteractor);
         playerView.setPlayerController(playerController);
         return this;
