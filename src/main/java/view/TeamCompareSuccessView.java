@@ -30,7 +30,11 @@ public class TeamCompareSuccessView extends JPanel implements PropertyChangeList
 
     private final TeamCompareSuccessViewModel teamCompareSuccessViewModel;
     private TeamCompareController teamCompareController;
-    private final InMemoryTeamDataAccessObject teams = new InMemoryTeamDataAccessObject();
+    private final InMemoryTeamDataAccessObject teams = new
+            InMemoryTeamDataAccessObject
+                    .Builder()
+            .fetchTeamData()
+            .build();
     private final List<TeamData> teamList;
     private TeamData correctTeam1;
     private TeamData correctTeam2;

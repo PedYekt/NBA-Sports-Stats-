@@ -44,8 +44,4 @@ public class TeamApi {
         }
         return teamDataString;
     }
-
-    public static void main(String[] args) {
-        System.out.println(fetchAllTeamsData());
-    }
 }

@@ -43,7 +43,10 @@ public class TeamCompareView extends JPanel {
         menu = new JButton("Back to Menu");
         menu.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        final InMemoryTeamDataAccessObject teams = new InMemoryTeamDataAccessObject();
+        final InMemoryTeamDataAccessObject teams = new InMemoryTeamDataAccessObject
+                .Builder()
+                .fetchTeamData()
+                .build();
         final List<TeamData> teamList = teams.getAllTeams();
         final DefaultListModel<String> teamNames = new DefaultListModel<>();
 

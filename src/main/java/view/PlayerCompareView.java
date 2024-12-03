@@ -171,7 +171,10 @@ public class PlayerCompareView extends JPanel {
      */
     private void loadAllPlayers() {
         tableModel.setRowCount(0);
-        InMemoryPlayerDataAccessObject dao = new InMemoryPlayerDataAccessObject();
+        InMemoryPlayerDataAccessObject dao = new
+                InMemoryPlayerDataAccessObject.Builder()
+                .fetchPlayerData()
+                .build();
         List<PlayerData> playerDataList = dao.getAllPlayers();
 
         for (PlayerData playerData : playerDataList) {

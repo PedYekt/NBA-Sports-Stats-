@@ -14,6 +14,7 @@ public class TeamData {
     private String city;
 
     private int points;
+
     private int turnovers;
 
     private int steals;
