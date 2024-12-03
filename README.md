@@ -28,7 +28,7 @@ Statistics are an essential part of sport, and basketball is no different. It pr
     - Jack is an avid NBA fan. He opens the application to get the latest statistics on his favorite player. He navigates to the player's profile and views the most recent data, including points scored, assists, and rebounds. He also checks the player's performance trend over the season.
 
 2. **Steven's Story** (Emanuel's Responsibility)
-    - Steven is a fan of the Toronto Raptors, and he wants to evaluate how statistically well the team is doing this season in comparison to the Denver Nuggets, who they play in their next game. Steven uses the application’s compare function to view the two teams’ average statistics during the current season. Specifically, Steven is interested in comparing the two teams’ average points per game, field goal percentage, and three point percentage
+    - Steven is a fan of the Toronto Raptors, and he wants to evaluate how statistically well the team is doing this season in comparison to the Denver Nuggets, who they play in their next game. Steven uses the application’s team compare function to view the two teams’ total statistics during the current season. Specifically, Steven is interested in comparing the two teams’ total points scored, total steals, and total turnovers.
 
 3. **Michael's Story** (Frank's Responsibility)
     - Michael is an NBA stats analyst, Trying to identify teams with top offense this season, and teams with few turnovers, trying to analyze the teams with extremely efficient offenses.
