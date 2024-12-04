@@ -1,11 +1,9 @@
 package view;
 
 import interface_adapter.menu.MenuViewController;
-import interface_adapter.team_compare.TeamCompareController;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
